@@ -48,11 +48,13 @@ const YouKnow = React.createClass({
         } else {
             this.setStage(Stage.GAME_ROUND);
         }
+    moveToSetup: function moveToSetup () {
+        this.setStage(Stage.GAME_SETUP);
     },
     render: function render () {
         switch (this.state.stage) {
             case Stage.SPLASH: 
-                return <Splash setStage={this.setStage} />;
+                return <Splash continue={this.moveToSetup} />;
                 break;
 
             case Stage.GAME_SETUP:
