@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 
-import ScoreInput from './ScoreInput';
+import ScoreInput from './EnterScore/ScoreInput';
 import ErrorMessage from './ErrorMessage';
 
 const CARDS = [
@@ -56,7 +56,7 @@ export default class EnterScore extends Component {
     render () {
         const scoreInputs = CARDS.map((card, i) => {
             return (
-                <ScoreInput key={i} increment={this.incrementScore} decrement={this.decrementScore} value={card.value} name={card.name} />
+                <EnterScore.ScoreInput key={i} increment={this.incrementScore} decrement={this.decrementScore} value={card.value} name={card.name} />
             );
         });
 
@@ -72,3 +72,5 @@ export default class EnterScore extends Component {
         );
     }
 }
+
+EnterScore.ScoreInput = ScoreInput;
