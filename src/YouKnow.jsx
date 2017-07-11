@@ -42,12 +42,8 @@ const YouKnow = React.createClass({
         };
     },
     startGame: function startGame () {
-        if (this.state.players.length < 2) {
-            console.log('not enough players');
-            return false;
-        } else {
-            this.setStage(Stage.GAME_ROUND);
-        }
+        this.setStage(Stage.GAME_ROUND);
+    },
     moveToSetup: function moveToSetup () {
         this.setStage(Stage.GAME_SETUP);
     },
@@ -58,7 +54,7 @@ const YouKnow = React.createClass({
                 break;
 
             case Stage.GAME_SETUP:
-                return <GameSetup startGame={this.startGame} addPlayer={this.addPlayer} players={this.state.players} setStage={this.setStage} goal={this.state.goal} updateGoal={this.updateGoal} />;
+                return <GameSetup continue={this.startGame} addPlayer={this.addPlayer} players={this.state.players} setStage={this.setStage} goal={this.state.goal} updateGoal={this.updateGoal} />;
                 break;
 
             case Stage.GAME_ROUND:
