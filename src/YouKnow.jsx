@@ -53,23 +53,43 @@ const YouKnow = React.createClass({
             stage: Stage.ENTER_SCORE
         });
     },
-    calculateWinner: function calculateWinner () {
+    moveToNextRound: function moveToNextRound (score) {
+        const winner = this.state.players[this.state.winner];
+
+        // add score to winner's score table
+        // FIXME: this is mutating this.state, bad drew
+        winner.scores = winner.scores.concat(score);
+
+        // calculate winner's total to see if they've beaten the goal
+        if (this.calculateTotal(winner.scores) >= this.state.goal) {
+            this.setState({
+                stage: Stage.WINNER
+            });
+        } else {
+            this.setState({
+                stage: Stage.GAME_ROUND,
+                winner: undefined
+            });
+        }
+    },
+    calculateTotal: function calculateTotal (scores) {
+        let total = scores.reduce( (prev, curr) => prev + curr );
+        console.log(total);
+        return total;
     },
     render: function render () {
         switch (this.state.stage) {
             case Stage.SPLASH: 
                 return <Splash continue={this.moveToSetup} />;
-                break;
 
             case Stage.GAME_SETUP:
                 return <GameSetup continue={this.moveToGameRound} addPlayer={this.addPlayer} players={this.state.players} setStage={this.setStage} goal={this.state.goal} updateGoal={this.updateGoal} />;
-                break;
 
             case Stage.GAME_ROUND:
                 return <GameRound continue={this.moveToEnterScore} round={this.state.round} players={this.state.players} />;
 
             case Stage.ENTER_SCORE:
-                return <EnterScore continue={this.calculateWinner} winner={this.state.players[this.state.winner].name} />;
+                return <EnterScore continue={this.moveToNextRound} winner={this.state.players[this.state.winner].name} />;
 
 /*
             case Stage.WINNER:

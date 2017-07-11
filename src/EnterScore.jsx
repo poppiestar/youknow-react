@@ -43,10 +43,22 @@ class EnterScore extends React.Component {
     }
 
     validate () {
-        return false;
+        if (this.state.score === 0) {
+            this.setState({
+                errorMessage: 'You need to enter a score'
+            });
+        } else {
+            this.props.continue(this.state.score);
+        }
     }
 
     render () {
+        let errorMessage; 
+
+        if (this.state.errorMessage) {
+            errorMessage = <p>{this.state.errorMessage}</p>;
+        }
+
         const scoreInputs = CARDS.map((card, i) => {
             return (
                 <ScoreInput key={i} increment={this.incrementScore} decrement={this.decrementScore} value={card.value} name={card.name} />
@@ -56,6 +68,7 @@ class EnterScore extends React.Component {
         return (
             <div>
                 <h1>Enter Score</h1>
+                {errorMessage}
                 <p>Winner: {this.props.winner}</p>
                 <p>Value: {this.state.score}</p>
                 {scoreInputs}
