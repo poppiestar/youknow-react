@@ -19,9 +19,8 @@ const Stage = {
 const YouKnow = React.createClass({
     getInitialState: function getInitialState () {
         return {
-            players: [{ name: 'Drew', scores: [0] }, { name: 'Suzy', scores: [0] }],
-            goal: 750,
-            round: 0,
+            players: [],
+            goal: 500,
             stage: Stage.SPLASH
         };
     },
