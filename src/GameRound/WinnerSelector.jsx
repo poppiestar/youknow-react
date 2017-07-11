@@ -1,23 +1,17 @@
 
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class WinnerSelector extends Component {
-    selectWinner () {
-        this.props.selectWinner(this.refs.winner.value);
-    }
+const WinnerSelector = ({ players, setWinner }) => (
+    <select onChange={(e) => setWinner(e.target.value)}>
+        <option value="">Who won?</option>
+        {
+            players.map((player, i) => {
+                return (
+                    <option key={i} value={i}>{player.name}</option>
+                );
+            })
+        }
+    </select>
+);
 
-    render () {
-        const players = this.props.players.map((player, i) => {
-            return (
-                <option key={i} value={i}>{player.name}</option>
-            );
-        });
-
-        return (
-            <select ref="winner" onChange={this.selectWinner.bind(this)}>
-                <option value="">Who won?</option>
-                {players}
-            </select>
-        );
-    }
-}
+export default WinnerSelector;

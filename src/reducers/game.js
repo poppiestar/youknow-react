@@ -1,16 +1,15 @@
 
-import { START_GAME, SET_STAGE, Stage } from '../actions';
+import { SET_STAGE, SET_WINNER, Stage } from '../actions';
 
-const game = (state = { stage: Stage.SPLASH } , action) => {
+const game = (state = { stage: Stage.GAME_SETUP } , action) => {
     switch (action.type) {
-        case START_GAME:
-            console.log('start game reducer', state);
-            return state;
-
         case SET_STAGE:
             return {
                 stage: action.value
             };
+
+        case SET_WINNER:
+            return Object.assign({}, state, { roundWinner: action.value });
 
         default:
             return state;

@@ -52,3 +52,25 @@ export const setStage = (stage) => {
         value: stage
     };
 };
+
+export const SET_WINNER = 'SET_WINNER';
+export const setWinner = (winner) => {
+    return {
+        type: SET_WINNER,
+        value: winner
+    }
+};
+
+export const ROUND_OVER = 'ROUND_OVER';
+export const roundOver = () => {
+    return (dispatch, getState) => {
+        const { game } = getState();
+
+        if (game.roundWinner) {
+            dispatch({
+                type: SET_STAGE,
+                value: Stage.ENTER_SCORE
+            });
+        }
+    };
+};

@@ -1,44 +1,17 @@
 
-import React, { Component } from 'react';
+import React from 'react';
 
 import PlayerScores from './GameRound/PlayerScores';
-import WinnerSelector from './GameRound/WinnerSelector';
-import ErrorMessage from './ErrorMessage';
+import VisibleWinnerSelector from './GameRound/VisibleWinnerSelector';
 
-export default class GameRound extends Component {
-    constructor (props) {
-        super(props);
-
-        this.state = {};
-    }
-
-    validate () {
-        if (!this.state.winner) {
-            this.setState({
-                errorMessage: 'You need to select a winner to continue'
-            });
-        } else {
-            this.props.continue(parseInt(this.state.winner, 10));
-        }
-    }
-
-    selectWinner (id) {
-        this.setState({
-            winner: id
-        });
-    }
-
-    render () {
-        return (
-            <div>
-                <GameRound.PlayerScores players={this.props.players} />
-                <ErrorMessage message={this.state.errorMessage} />
-                <GameRound.WinnerSelector players={this.props.players} selectWinner={this.selectWinner.bind(this)} />
-                <button onClick={this.validate.bind(this)}>Enter Score</button>
-            </div>
-        );
-    }
-}
+const GameRound = ({ players, roundOver }) => (
+    <div>
+        <GameRound.PlayerScores players={players} />
+        <VisibleWinnerSelector />
+        <button onClick={roundOver}>Enter Score</button>
+    </div>
+);
 
 GameRound.PlayerScores = PlayerScores;
-GameRound.WinnerSelector = WinnerSelector;
+
+export default GameRound;

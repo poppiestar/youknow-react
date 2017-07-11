@@ -1,25 +1,23 @@
 
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class PlayerScores extends Component {
-    render () {
-        const players = this.props.players.map((player, i) => {
-            const score = player.scores.reduce((prev, next) => { return prev + next });
+const PlayerScores = ({ players }) => (
+    <div>
+        <h2>Player Scores</h2>
+        <ul>
+            {
+                players.map((player, i) => {
+                    const score = player.scores.reduce((prev, next) => { return prev + next });
 
-            return (
-                <li key={i}>
-                    <p>{player.name}: {score}</p>
-                </li>
-            );
-        });
+                    return (
+                        <li key={i}>
+                            <p>{player.name}: {score}</p>
+                        </li>
+                    );
+                })
+            }
+        </ul>
+    </div>
+);
 
-        return (
-            <div>
-                <h2>Player Scores</h2>
-                <ul>
-                    {players}
-                </ul>
-            </div>
-        );
-    }
-}
+export default PlayerScores;

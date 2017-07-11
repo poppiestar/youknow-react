@@ -14,29 +14,6 @@ const GameSetup = ({ startGame }) => (
     </div>
 );
 
-// export default class GameSetup extends Component {
-//     constructor (props) {
-//         super(props);
-//
-//         this.state = {};
-//     }
-//
-//     validate () {
-//         if (this.props.players.length < 2) {
-//             this.setState({
-//                 errorMessage: 'Not enough players to start the game'
-//             });
-//         } else {
-//             this.props.continue();
-//         }
-//     }
-//
-//     render () {
-//         return (
-//         );
-//     }
-// }
-//
 GameSetup.SetGoal = SetGoal;
 GameSetup.EnterPlayers = EnterPlayers;
 
