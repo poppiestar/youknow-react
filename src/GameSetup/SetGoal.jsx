@@ -1,14 +1,14 @@
 
 import React, { Component } from 'react';
 
-import GoalSelect from './GoalSelect';
+import VisibleGoalSelect from './VisibleGoalSelect';
 
 export default class SetGoal extends Component {
     render () {
         return (
             <div>
                 Set Goal:
-                <GoalSelect goal={this.props.goal} updateGoal={this.props.updateGoal} />
+                <VisibleGoalSelect />
             </div>
         );
     }
