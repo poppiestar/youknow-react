@@ -1,5 +1,6 @@
 
 import React from 'react';
+import update from 'react-addons-update';
 
 import Splash from './Splash';
 import GameSetup from './GameSetup';
@@ -55,16 +56,21 @@ const YouKnow = React.createClass({
         const winner = this.state.players[this.state.winner];
 
         // add score to winner's score table
-        // FIXME: this is mutating this.state, bad drew
-        winner.scores = winner.scores.concat(score);
+        let players = update(this.state.players, {
+            [this.state.winner]: {
+                scores: { $push: [score] } 
+            }
+        });
 
         // calculate winner's total to see if they've beaten the goal
         if (this.calculateTotal(winner.scores) >= this.state.goal) {
             this.setState({
+                players: players,
                 stage: Stage.WINNER
             });
         } else {
             this.setState({
+                players: players,
                 stage: Stage.GAME_ROUND,
                 winner: undefined
             });
