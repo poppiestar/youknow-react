@@ -47,8 +47,11 @@ const YouKnow = React.createClass({
     moveToGameRound: function moveToEnterScore () {
         this.setStage(Stage.GAME_ROUND);
     },
-    moveToEnterScore: function moveToEnterScore () {
-        this.setStage(Stage.ENTER_SCORE);
+    moveToEnterScore: function moveToEnterScore (winner) {
+        this.setState({
+            winner: winner,
+            stage: Stage.ENTER_SCORE
+        });
     },
     render: function render () {
         switch (this.state.stage) {
@@ -63,10 +66,10 @@ const YouKnow = React.createClass({
             case Stage.GAME_ROUND:
                 return <GameRound continue={this.moveToEnterScore} round={this.state.round} players={this.state.players} />;
 
-/*
             case Stage.ENTER_SCORE:
                 return <EnterScore />;
 
+/*
             case Stage.WINNER:
                 return <Winner />;
 
