@@ -5,7 +5,7 @@ import update from 'react-addons-update';
 import VisibleSplash from './VisibleSplash';
 import VisibleGameSetup from './VisibleGameSetup';
 import VisibleGameRound from './VisibleGameRound';
-import EnterScore from './EnterScore';
+import VisibleEnterScore from './VisibleEnterScore';
 import Winner from './Winner';
 
 const Stage = {
@@ -28,7 +28,7 @@ const YouKnow = ({ goal, game, players }) => {
             return <VisibleGameRound />;
 
         case Stage.ENTER_SCORE:
-            return <EnterScore continue={this.moveToNextRound} winner={this.state.players[this.state.winner].name} />;
+            return <VisibleEnterScore />;
 
         case Stage.WINNER:
             return <Winner winner={this.state.players[this.state.winner]} restartGame={this.restartGame} resetGame={this.resetGame} />;
