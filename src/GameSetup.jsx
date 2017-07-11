@@ -28,7 +28,7 @@ export default class GameSetup extends Component {
                 <h1>Player Entry</h1>
                 <ErrorMessage message={this.state.errorMessage} />
                 <GameSetup.SetGoal />
-                <GameSetup.EnterPlayers addPlayer={this.props.addPlayer} removePlayer={this.props.removePlayer} players={this.props.players} />
+                <GameSetup.EnterPlayers />
                 <button onClick={this.validate.bind(this)}>Start Game</button>
             </div>
         );
