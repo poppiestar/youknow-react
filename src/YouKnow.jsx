@@ -27,7 +27,7 @@ const YouKnow = React.createClass({
     setStage: function setStage (stage) {
         this.setState({ stage: stage });
     },
-    updateGoal: function setGoal (goal) {
+    updateGoal: function updateGoal (goal) {
         this.setState({ goal: goal });
     },
     addPlayer: function addPlayer (name) {
@@ -49,7 +49,7 @@ const YouKnow = React.createClass({
     moveToSetup: function moveToSetup () {
         this.setStage(Stage.GAME_SETUP);
     },
-    moveToGameRound: function moveToEnterScore () {
+    moveToGameRound: function moveToGameRound () {
         this.setStage(Stage.GAME_ROUND);
     },
     moveToEnterScore: function moveToEnterScore (winner) {
@@ -107,7 +107,7 @@ const YouKnow = React.createClass({
                 return <Splash continue={this.moveToSetup} />;
 
             case Stage.GAME_SETUP:
-                return <GameSetup continue={this.moveToGameRound} addPlayer={this.addPlayer} removePlayer={this.removePlayer} players={this.state.players} setStage={this.setStage} goal={this.state.goal} updateGoal={this.updateGoal} />;
+                return <GameSetup continue={this.moveToGameRound} addPlayer={this.addPlayer} removePlayer={this.removePlayer} players={this.state.players} goal={this.state.goal} updateGoal={this.updateGoal} />;
 
             case Stage.GAME_ROUND:
                 return <GameRound continue={this.moveToEnterScore} players={this.state.players} />;
