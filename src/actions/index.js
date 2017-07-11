@@ -67,10 +67,7 @@ export const roundOver = () => {
         const { game } = getState();
 
         if (game.roundWinner) {
-            dispatch({
-                type: SET_STAGE,
-                value: Stage.ENTER_SCORE
-            });
+            dispatch(setStage(Stage.ENTER_SCORE));
         }
     };
 };
