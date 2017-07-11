@@ -74,3 +74,25 @@ export const roundOver = () => {
         }
     };
 };
+
+export const NEXT_ROUND = 'NEXT_ROUND';
+export const nextRound = () => {
+    // TODO: calculate whether the winner has won
+    return setStage(Stage.GAME_ROUND);
+};
+
+export const ADD_SCORE = 'ADD_SCORE';
+export const addScore = (value) => {
+    return {
+        type: ADD_SCORE,
+        value: value
+    };
+};
+
+export const SUBTRACT_SCORE = 'SUBTRACT_SCORE';
+export const subtractScore = (value) => {
+    return {
+        type: SUBTRACT_SCORE,
+        value: value
+    };
+};
