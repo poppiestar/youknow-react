@@ -39,9 +39,8 @@ class GameRound extends React.Component {
 
         return (
             <div>
-                <h1>Round {this.props.round}</h1>
-                {errorMessage}
                 <PlayerScores players={this.props.players} />
+                {errorMessage}
                 <WinnerSelector players={this.props.players} selectWinner={this.selectWinner} />
                 <button onClick={this.validate}>Enter Score</button>
             </div>

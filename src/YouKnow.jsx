@@ -5,9 +5,7 @@ import Splash from './Splash';
 import GameSetup from './GameSetup';
 import GameRound from './GameRound';
 import EnterScore from './EnterScore';
-/*
 import Winner from './Winner';
-*/
 
 const Stage = {
     SPLASH: 1,
@@ -73,9 +71,23 @@ const YouKnow = React.createClass({
         }
     },
     calculateTotal: function calculateTotal (scores) {
-        let total = scores.reduce( (prev, curr) => prev + curr );
-        console.log(total);
-        return total;
+        return scores.reduce( (prev, curr) => prev + curr );
+    },
+    restartGame: function restartGame () {
+        this.setState({
+            stage: Stage.GAME_ROUND,
+            goal: this.state.goal,
+            players: this.state.players.map( (player) => {
+                return this.newPlayer(player.name);
+            })
+        });
+    },
+    resetGame: function resetGame () {
+        this.setState({
+            players: [],
+            goal: 500,
+            stage: Stage.GAME_SETUP
+        });
     },
     render: function render () {
         switch (this.state.stage) {
@@ -86,16 +98,14 @@ const YouKnow = React.createClass({
                 return <GameSetup continue={this.moveToGameRound} addPlayer={this.addPlayer} players={this.state.players} setStage={this.setStage} goal={this.state.goal} updateGoal={this.updateGoal} />;
 
             case Stage.GAME_ROUND:
-                return <GameRound continue={this.moveToEnterScore} round={this.state.round} players={this.state.players} />;
+                return <GameRound continue={this.moveToEnterScore} players={this.state.players} />;
 
             case Stage.ENTER_SCORE:
                 return <EnterScore continue={this.moveToNextRound} winner={this.state.players[this.state.winner].name} />;
 
-/*
             case Stage.WINNER:
-                return <Winner />;
+                return <Winner winner={this.state.players[this.state.winner]} restartGame={this.restartGame} resetGame={this.resetGame} />;
 
-*/
             default:
                 return <Splash />;
         };
