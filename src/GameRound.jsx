@@ -9,9 +9,6 @@ export default class GameRound extends Component {
     constructor (props) {
         super(props);
 
-        this.validate = this.validate.bind(this);
-        this.selectWinner = this.selectWinner.bind(this);
-
         this.state = {};
     }
 
@@ -36,8 +33,8 @@ export default class GameRound extends Component {
             <div>
                 <GameRound.PlayerScores players={this.props.players} />
                 <ErrorMessage message={this.state.errorMessage} />
-                <GameRound.WinnerSelector players={this.props.players} selectWinner={this.selectWinner} />
-                <button onClick={this.validate}>Enter Score</button>
+                <GameRound.WinnerSelector players={this.props.players} selectWinner={this.selectWinner.bind(this)} />
+                <button onClick={this.validate.bind(this)}>Enter Score</button>
             </div>
         );
     }

@@ -22,10 +22,6 @@ export default class EnterScore extends Component {
     constructor (props) {
         super(props);
 
-        this.validate = this.validate.bind(this);
-        this.incrementScore = this.incrementScore.bind(this);
-        this.decrementScore = this.decrementScore.bind(this);
-
         this.state = {
             score: 0
         };
@@ -56,7 +52,7 @@ export default class EnterScore extends Component {
     render () {
         const scoreInputs = CARDS.map((card, i) => {
             return (
-                <EnterScore.ScoreInput key={i} increment={this.incrementScore} decrement={this.decrementScore} value={card.value} name={card.name} />
+                <EnterScore.ScoreInput key={i} increment={this.incrementScore.bind(this)} decrement={this.decrementScore.bind(this)} value={card.value} name={card.name} />
             );
         });
 
@@ -67,7 +63,7 @@ export default class EnterScore extends Component {
                 <p>Winner: {this.props.winner}</p>
                 <p>Value: {this.state.score}</p>
                 {scoreInputs}
-                <button onClick={this.validate}>Next Round</button>
+                <button onClick={this.validate.bind(this)}>Next Round</button>
             </div>
         );
     }

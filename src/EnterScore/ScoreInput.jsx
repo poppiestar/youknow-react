@@ -5,9 +5,6 @@ export default class ScoreInput extends Component {
     constructor (props) {
         super(props);
 
-        this.increment = this.increment.bind(this);
-        this.decrement = this.decrement.bind(this);
-
         this.state = {
             count: 0
         };
@@ -29,9 +26,9 @@ export default class ScoreInput extends Component {
         return (
             <div>
                 {this.props.name}
-                <button onClick={this.decrement}>-</button>
+                <button onClick={this.decrement.bind(this)}>-</button>
                 {this.state.count}
-                <button onClick={this.increment}>+</button>
+                <button onClick={this.increment.bind(this)}>+</button>
             </div>
         );
     }

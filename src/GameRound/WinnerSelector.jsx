@@ -2,12 +2,6 @@
 import React, { Component } from 'react';
 
 export default class WinnerSelector extends Component {
-    constructor (props) {
-        super(props);
-
-        this.selectWinner = this.selectWinner.bind(this);
-    }
-
     selectWinner () {
         this.props.selectWinner(this.refs.winner.value);
     }
@@ -20,7 +14,7 @@ export default class WinnerSelector extends Component {
         });
 
         return (
-            <select ref="winner" onChange={this.selectWinner}>
+            <select ref="winner" onChange={this.selectWinner.bind(this)}>
                 <option value="">Who won?</option>
                 {players}
             </select>

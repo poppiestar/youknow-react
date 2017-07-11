@@ -9,8 +9,6 @@ export default class GameSetup extends Component {
     constructor (props) {
         super(props);
 
-        this.validate = this.validate.bind(this);
-
         this.state = {};
     }
 
@@ -31,7 +29,7 @@ export default class GameSetup extends Component {
                 <ErrorMessage message={this.state.errorMessage} />
                 <GameSetup.SetGoal goal={this.props.goal} updateGoal={this.props.updateGoal} />
                 <GameSetup.EnterPlayers addPlayer={this.props.addPlayer} removePlayer={this.props.removePlayer} players={this.props.players} />
-                <button onClick={this.validate}>Start Game</button>
+                <button onClick={this.validate.bind(this)}>Start Game</button>
             </div>
         );
     }
