@@ -17,16 +17,8 @@ const Stage = {
 };
 
 const YouKnow = React.createClass({
-    getInitialState: function getInitialState () {
-        return {
-            players: []
-        };
-    },
     setStage: function setStage (stage) {
         this.setState({ stage: stage });
-    },
-    addPlayer: function addPlayer (name) {
-        this.setState({ players: this.state.players.concat(this.newPlayer(name)) });
     },
     removePlayer: function removePlayer (player) {
         this.setState({
@@ -34,12 +26,6 @@ const YouKnow = React.createClass({
                 return candidate.name !== player.name;
             })
         });
-    },
-    newPlayer: function newPlayer (name) {
-        return {
-            name: name,
-            scores: [0]
-        };
     },
     moveToSetup: function moveToSetup () {
         this.setStage(Stage.GAME_SETUP);
@@ -102,11 +88,7 @@ const YouKnow = React.createClass({
                 return <Splash continue={this.moveToSetup} />;
 
             case Stage.GAME_SETUP:
-                return <GameSetup continue={this.moveToGameRound}
-                        addPlayer={this.addPlayer}
-                        removePlayer={this.removePlayer}
-                        players={this.state.players}
-                        goal={this.props.goal} />;
+                return <GameSetup continue={this.moveToGameRound} />;
 
             case Stage.GAME_ROUND:
                 return <GameRound continue={this.moveToEnterScore} players={this.state.players} />;
