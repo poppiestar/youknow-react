@@ -38,47 +38,6 @@ const YouKnow = ({ goal, game, players }) => {
     };
 };
 
-
-// const YouKnow = React.createClass({
-    // moveToSetup: function moveToSetup () {
-    //     this.setStage(Stage.GAME_SETUP);
-    // },
-    // moveToGameRound: function moveToGameRound () {
-    //     this.setStage(Stage.GAME_ROUND);
-    // },
-    // moveToEnterScore: function moveToEnterScore (winner) {
-    //     this.setState({
-    //         winner: winner,
-    //         stage: Stage.ENTER_SCORE
-    //     });
-    // },
-    // moveToNextRound: function moveToNextRound (score) {
-    //     // add score to winner's score table
-    //     let players = update(this.state.players, {
-    //         [this.state.winner]: {
-    //             scores: { $push: [score] }
-    //         }
-    //     });
-    //
-    //     const winner = players[this.state.winner];
-    //
-    //     // calculate winner's total to see if they've beaten the goal
-    //     if (this.calculateTotal(winner.scores) >= this.props.goal) {
-    //         this.setState({
-    //             players: players,
-    //             stage: Stage.WINNER
-    //         });
-    //     } else {
-    //         this.setState({
-    //             players: players,
-    //             stage: Stage.GAME_ROUND,
-    //             winner: undefined
-    //         });
-    //     }
-    // },
-    // calculateTotal: function calculateTotal (scores) {
-    //     return scores.reduce( (prev, curr) => prev + curr );
-    // },
     // restartGame: function restartGame () {
     //     this.setState({
     //         stage: Stage.GAME_ROUND,
