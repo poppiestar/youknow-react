@@ -30,7 +30,7 @@ class GameSetup extends React.Component {
                 <h1>Player Entry</h1>
                 <ErrorMessage message={this.state.errorMessage} />
                 <SetGoal goal={this.props.goal} updateGoal={this.props.updateGoal} />
-                <EnterPlayers addPlayer={this.props.addPlayer} players={this.props.players} />
+                <EnterPlayers addPlayer={this.props.addPlayer} removePlayer={this.props.removePlayer} players={this.props.players} />
                 <button onClick={this.validate}>Start Game</button>
             </div>
         );

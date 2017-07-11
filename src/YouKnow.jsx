@@ -34,6 +34,13 @@ const YouKnow = React.createClass({
     addPlayer: function addPlayer (name) {
         this.setState({ players: this.state.players.concat(this.newPlayer(name)) });
     },
+    removePlayer: function removePlayer (player) {
+        this.setState({
+            players: this.state.players.filter((candidate) => {
+                return candidate.name !== player.name;
+            })
+        });
+    },
     newPlayer: function newPlayer (name) {
         return {
             name: name,
@@ -101,7 +108,7 @@ const YouKnow = React.createClass({
                 return <Splash continue={this.moveToSetup} />;
 
             case Stage.GAME_SETUP:
-                return <GameSetup continue={this.moveToGameRound} addPlayer={this.addPlayer} players={this.state.players} setStage={this.setStage} goal={this.state.goal} updateGoal={this.updateGoal} />;
+                return <GameSetup continue={this.moveToGameRound} addPlayer={this.addPlayer} removePlayer={this.removePlayer} players={this.state.players} setStage={this.setStage} goal={this.state.goal} updateGoal={this.updateGoal} />;
 
             case Stage.GAME_ROUND:
                 return <GameRound continue={this.moveToEnterScore} players={this.state.players} />;

@@ -9,7 +9,7 @@ class EnterPlayers extends React.Component {
         return (
             <div>
                 <h2>Enter Players</h2>
-                <PlayerList players={this.props.players} />
+                <PlayerList removePlayer={this.props.removePlayer} players={this.props.players} />
                 <NewPlayer addPlayer={this.props.addPlayer} />
             </div>
         );
