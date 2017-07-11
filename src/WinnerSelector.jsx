@@ -9,7 +9,6 @@ class WinnerSelector extends React.Component {
     }
 
     selectWinner () {
-        console.log(this.refs.winner.value);
         this.props.selectWinner(this.refs.winner.value);
     }
 
@@ -20,10 +19,9 @@ class WinnerSelector extends React.Component {
             );
         });
 
-
         return (
             <select ref="winner" onChange={this.selectWinner}>
-                <option>Who won?</option>
+                <option value="">Who won?</option>
                 {players}
             </select>
         );
