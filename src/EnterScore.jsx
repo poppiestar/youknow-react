@@ -1,8 +1,7 @@
 
-import React, { Component } from 'react';
+import React from 'react';
 
 import ScoreInput from './EnterScore/ScoreInput';
-import ErrorMessage from './ErrorMessage';
 
 const CARDS = [
     { value: 1, name: "1" },
@@ -18,55 +17,22 @@ const CARDS = [
     { value: 50, name: "Wild" }
 ];
 
-export default class EnterScore extends Component {
-    constructor (props) {
-        super(props);
-
-        this.state = {
-            score: 0
-        };
-    }
-
-    incrementScore (value) {
-        this.setState({
-            score: this.state.score + value
-        });
-    }
-
-    decrementScore (value) {
-        this.setState({
-            score: this.state.score - value
-        });
-    }
-
-    validate () {
-        if (this.state.score === 0) {
-            this.setState({
-                errorMessage: 'You need to enter a score'
-            });
-        } else {
-            this.props.continue(this.state.score);
+const EnterScore = ({ winner, score, nextRound, addScore, subtractScore }) => (
+    <div>
+        <h1>Enter Score</h1>
+        <p>Winner: {winner}</p>
+        <p>Value: {score}</p>
+        {
+            CARDS.map((card, i) => {
+                return (
+                    <EnterScore.ScoreInput key={i} increment={addScore} decrement={subtractScore} value={card.value} name={card.name} />
+                );
+            })
         }
-    }
-
-    render () {
-        const scoreInputs = CARDS.map((card, i) => {
-            return (
-                <EnterScore.ScoreInput key={i} increment={this.incrementScore.bind(this)} decrement={this.decrementScore.bind(this)} value={card.value} name={card.name} />
-            );
-        });
-
-        return (
-            <div>
-                <h1>Enter Score</h1>
-                <ErrorMessage message={this.state.errorMessage} />
-                <p>Winner: {this.props.winner}</p>
-                <p>Value: {this.state.score}</p>
-                {scoreInputs}
-                <button onClick={this.validate.bind(this)}>Next Round</button>
-            </div>
-        );
-    }
-}
+        <button onClick={nextRound}>Next Round</button>
+    </div>
+);
 
 EnterScore.ScoreInput = ScoreInput;
+
+export default EnterScore;
