@@ -3,11 +3,11 @@ import { combineReducers } from 'redux';
 
 import players from './players';
 import goal from './goal';
-import stage from './stage';
+import game from './game';
 
 const youKnowApp = combineReducers({
     goal,
-    stage,
+    game,
     players
 });
 

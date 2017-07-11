@@ -5,7 +5,7 @@ import YouKnow from './YouKnow';
 const mapStateToProps = (state) => {
     return {
         goal: state.goal,
-        stage: state.stage,
+        game: state.game,
         players: state.players
     };
 };
