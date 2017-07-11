@@ -14,6 +14,12 @@ const players = (state = [], action) => {
                 newPlayer(action.value)
             ];
 
+        case 'REMOVE_PLAYER':
+            return [
+                ...state.slice(0, action.value),
+                ...state.slice(action.value + 1)
+            ];
+
         default:
             return state;
     }
