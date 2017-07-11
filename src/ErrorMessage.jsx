@@ -1,7 +1,7 @@
 
-import React from 'react';
+import React, { Component } from 'react';
 
-class ErrorMessage extends React.Component {
+class ErrorMessage extends Component {
     render () {
         if (this.props.message) {
             return (
@@ -14,4 +14,3 @@ class ErrorMessage extends React.Component {
 }
 
 export default ErrorMessage;
-

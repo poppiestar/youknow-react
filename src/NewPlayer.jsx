@@ -1,7 +1,7 @@
 
-import React from 'react';
+import React, { Component } from 'react';
 
-class NewPlayer extends React.Component {
+class NewPlayer extends Component {
     constructor (props) {
         super(props);
 
@@ -28,4 +28,3 @@ class NewPlayer extends React.Component {
 }
 
 export default NewPlayer;
-

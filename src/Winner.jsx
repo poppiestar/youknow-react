@@ -1,7 +1,7 @@
 
-import React from 'react';
+import React, { Component } from 'react';
 
-class Winner extends React.Component {
+class Winner extends Component {
     render () {
         const name = this.props.winner.name;
         const score = this.props.winner.scores.reduce( (prev, curr) => prev + curr );
@@ -20,4 +20,3 @@ class Winner extends React.Component {
 }
 
 export default Winner;
-

@@ -1,7 +1,7 @@
 
-import React from 'react';
+import React, { Component } from 'react';
 
-class PlayerList extends React.Component {
+class PlayerList extends Component {
     render () {
         const players = this.props.players.map((player, i) => {
             return (
@@ -18,4 +18,3 @@ class PlayerList extends React.Component {
 }
 
 export default PlayerList;
-

@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { Component } from 'react';
 
 import GoalSelect from './GoalSelect';
 
@@ -15,4 +15,3 @@ const SetGoal = React.createClass({
 });
 
 export default SetGoal;
-

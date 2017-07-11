@@ -1,11 +1,11 @@
 
-import React from 'react';
+import React, { Component } from 'react';
 
 import SetGoal from './SetGoal';
 import EnterPlayers from './EnterPlayers';
 import ErrorMessage from './ErrorMessage';
 
-class GameSetup extends React.Component {
+class GameSetup extends Component {
     constructor (props) {
         super(props);
 
@@ -38,4 +38,3 @@ class GameSetup extends React.Component {
 }
 
 export default GameSetup;
-

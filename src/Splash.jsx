@@ -1,7 +1,7 @@
 
-import React from 'react';
+import React, { Component } from 'react';
 
-class Splash extends React.Component {
+class Splash extends Component {
     render () {
         return (
             <div>
@@ -14,4 +14,3 @@ class Splash extends React.Component {
 }
 
 export default Splash;
-

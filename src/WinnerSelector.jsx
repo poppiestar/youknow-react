@@ -1,7 +1,7 @@
 
-import React from 'react';
+import React, { Component } from 'react';
 
-class WinnerSelector extends React.Component {
+class WinnerSelector extends Component {
     constructor (props) {
         super(props);
 
@@ -29,4 +29,3 @@ class WinnerSelector extends React.Component {
 }
 
 export default WinnerSelector;
-

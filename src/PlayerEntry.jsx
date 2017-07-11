@@ -1,9 +1,9 @@
 
-import React from 'react';
+import React, { Component } from 'react';
 
 import SetGoal from './SetGoal';
 
-class GameSetup extends React.Component {
+class GameSetup extends Component {
     render () {
         return (
             <div>
@@ -14,4 +14,3 @@ class GameSetup extends React.Component {
 }
 
 export default GameSetup;
-

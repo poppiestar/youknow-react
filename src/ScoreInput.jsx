@@ -1,7 +1,7 @@
 
-import React from 'react';
+import React, { Component } from 'react';
 
-class ScoreInput extends React.Component {
+class ScoreInput extends Component {
     constructor (props) {
         super(props);
 
@@ -38,4 +38,3 @@ class ScoreInput extends React.Component {
 }
 
 export default ScoreInput;
-

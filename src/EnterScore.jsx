@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { Component } from 'react';
 
 import ScoreInput from './ScoreInput';
 import ErrorMessage from './ErrorMessage';
@@ -18,7 +18,7 @@ const CARDS = [
     { value: 50, name: "Wild" }
 ];
 
-class EnterScore extends React.Component {
+class EnterScore extends Component {
     constructor (props) {
         super(props);
 
@@ -74,4 +74,3 @@ class EnterScore extends React.Component {
 }
 
 export default EnterScore;
-

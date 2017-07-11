@@ -1,10 +1,10 @@
 
-import React from 'react';
+import React, { Component } from 'react';
 
 import PlayerList from './PlayerList';
 import NewPlayer from './NewPlayer';
 
-class EnterPlayers extends React.Component {
+class EnterPlayers extends Component {
     render () {
         return (
             <div>
@@ -17,4 +17,3 @@ class EnterPlayers extends React.Component {
 }
 
 export default EnterPlayers;
-

@@ -1,7 +1,7 @@
 
-import React from 'react';
+import React, { Component } from 'react';
 
-class PlayerScores extends React.Component {
+class PlayerScores extends Component {
     render () {
         const players = this.props.players.map((player, i) => {
             const score = player.scores.reduce((prev, next) => { return prev + next });
@@ -25,4 +25,3 @@ class PlayerScores extends React.Component {
 }
 
 export default PlayerScores;
-
