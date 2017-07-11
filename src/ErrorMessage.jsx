@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 
-class ErrorMessage extends Component {
+export default class ErrorMessage extends Component {
     render () {
         if (this.props.message) {
             return (
@@ -12,5 +12,3 @@ class ErrorMessage extends Component {
         }
     }
 }
-
-export default ErrorMessage;

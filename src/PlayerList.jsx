@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 
-class PlayerList extends Component {
+export default class PlayerList extends Component {
     render () {
         const players = this.props.players.map((player, i) => {
             return (
@@ -16,5 +16,3 @@ class PlayerList extends Component {
         );
     }
 }
-
-export default PlayerList;

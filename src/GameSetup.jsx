@@ -5,7 +5,7 @@ import SetGoal from './SetGoal';
 import EnterPlayers from './EnterPlayers';
 import ErrorMessage from './ErrorMessage';
 
-class GameSetup extends Component {
+export default class GameSetup extends Component {
     constructor (props) {
         super(props);
 
@@ -36,5 +36,3 @@ class GameSetup extends Component {
         );
     }
 }
-
-export default GameSetup;

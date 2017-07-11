@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 import SetGoal from './SetGoal';
 
-class GameSetup extends Component {
+export default class GameSetup extends Component {
     render () {
         return (
             <div>
@@ -12,5 +12,3 @@ class GameSetup extends Component {
         );
     }
 }
-
-export default GameSetup;

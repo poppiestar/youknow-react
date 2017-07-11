@@ -18,7 +18,7 @@ const CARDS = [
     { value: 50, name: "Wild" }
 ];
 
-class EnterScore extends Component {
+export default class EnterScore extends Component {
     constructor (props) {
         super(props);
 
@@ -72,5 +72,3 @@ class EnterScore extends Component {
         );
     }
 }
-
-export default EnterScore;

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 import GoalSelect from './GoalSelect';
 
-class SetGoal extends Component {
+export default class SetGoal extends Component {
     render () {
         return (
             <div>
@@ -13,4 +13,3 @@ class SetGoal extends Component {
         );
     }
 }
-export default SetGoal;

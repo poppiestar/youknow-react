@@ -5,7 +5,7 @@ import PlayerScores from './PlayerScores';
 import WinnerSelector from './WinnerSelector';
 import ErrorMessage from './ErrorMessage';
 
-class GameRound extends Component {
+export default class GameRound extends Component {
     constructor (props) {
         super(props);
 
@@ -42,5 +42,3 @@ class GameRound extends Component {
         );
     }
 }
-
-export default GameRound;

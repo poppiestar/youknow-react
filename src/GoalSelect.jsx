@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 const goals = [300, 500, 750, 1000];
 
-class GoalSelect extends Component {
+export default class GoalSelect extends Component {
     constructor (props) {
         super(props);
 
@@ -26,5 +26,3 @@ class GoalSelect extends Component {
         );
     }
 }
-
-export default GoalSelect;

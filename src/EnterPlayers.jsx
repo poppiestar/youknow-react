@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import PlayerList from './PlayerList';
 import NewPlayer from './NewPlayer';
 
-class EnterPlayers extends Component {
+export default class EnterPlayers extends Component {
     render () {
         return (
             <div>
@@ -15,5 +15,3 @@ class EnterPlayers extends Component {
         );
     }
 }
-
-export default EnterPlayers;
