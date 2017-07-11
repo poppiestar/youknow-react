@@ -9,11 +9,10 @@ function newPlayer (name) {
 const players = (state = [], action) => {
     switch (action.type) {
         case 'ADD_PLAYER':
-            let things = [
+            return [
                 ...state,
                 newPlayer(action.value)
             ];
-            return things;
 
         default:
             return state;
