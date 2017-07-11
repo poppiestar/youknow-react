@@ -6,7 +6,8 @@ import GameRound from './GameRound';
 
 const mapStateToProps = (state) => {
     return {
-        players: state.players
+        players: state.players,
+        score: state.game.roundScore
     };
 };
 
