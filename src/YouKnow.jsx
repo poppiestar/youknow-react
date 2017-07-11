@@ -19,16 +19,11 @@ const Stage = {
 const YouKnow = React.createClass({
     getInitialState: function getInitialState () {
         return {
-            players: [],
-            goal: 500,
-            stage: Stage.SPLASH
+            players: []
         };
     },
     setStage: function setStage (stage) {
         this.setState({ stage: stage });
-    },
-    updateGoal: function updateGoal (goal) {
-        this.setState({ goal: goal });
     },
     addPlayer: function addPlayer (name) {
         this.setState({ players: this.state.players.concat(this.newPlayer(name)) });
@@ -69,7 +64,7 @@ const YouKnow = React.createClass({
         const winner = players[this.state.winner];
 
         // calculate winner's total to see if they've beaten the goal
-        if (this.calculateTotal(winner.scores) >= this.state.goal) {
+        if (this.calculateTotal(winner.scores) >= this.props.goal) {
             this.setState({
                 players: players,
                 stage: Stage.WINNER
@@ -88,7 +83,7 @@ const YouKnow = React.createClass({
     restartGame: function restartGame () {
         this.setState({
             stage: Stage.GAME_ROUND,
-            goal: this.state.goal,
+            goal: this.props.goal,
             players: this.state.players.map( (player) => {
                 return this.newPlayer(player.name);
             })
@@ -102,12 +97,16 @@ const YouKnow = React.createClass({
         });
     },
     render: function render () {
-        switch (this.state.stage) {
+        switch (this.props.stage) {
             case Stage.SPLASH:
                 return <Splash continue={this.moveToSetup} />;
 
             case Stage.GAME_SETUP:
-                return <GameSetup continue={this.moveToGameRound} addPlayer={this.addPlayer} removePlayer={this.removePlayer} players={this.state.players} goal={this.state.goal} updateGoal={this.updateGoal} />;
+                return <GameSetup continue={this.moveToGameRound}
+                        addPlayer={this.addPlayer}
+                        removePlayer={this.removePlayer}
+                        players={this.state.players}
+                        goal={this.props.goal} />;
 
             case Stage.GAME_ROUND:
                 return <GameRound continue={this.moveToEnterScore} players={this.state.players} />;

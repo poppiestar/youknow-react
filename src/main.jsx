@@ -4,14 +4,14 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
-import YouKnow from './YouKnow';
+import VisibleYouKnow from './VisibleYouKnow';
 import YouKnowStore from './reducers';
 
-const store = createStore(YouKnowStore);
+let store = createStore(YouKnowStore, window.devToolsExtension && window.devToolsExtension());
 
 render(
     <Provider store={store}>
-        <YouKnow />
+        <VisibleYouKnow />
     </Provider>,
     document.getElementById('main')
 );
