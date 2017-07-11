@@ -1,7 +1,7 @@
 
 import { connect } from 'react-redux';
 
-import { addPlayer } from './actions';
+import { addPlayer } from '../actions';
 import NewPlayer from './NewPlayer';
 
 const mapDispatchToProps = (dispatch) => {

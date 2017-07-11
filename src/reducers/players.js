@@ -1,4 +1,6 @@
 
+import { ADD_PLAYER, REMOVE_PLAYER } from '../actions';
+
 function newPlayer (name) {
     return {
         name: name,
