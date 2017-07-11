@@ -53,14 +53,14 @@ const YouKnow = React.createClass({
         });
     },
     moveToNextRound: function moveToNextRound (score) {
-        const winner = this.state.players[this.state.winner];
-
         // add score to winner's score table
         let players = update(this.state.players, {
             [this.state.winner]: {
                 scores: { $push: [score] } 
             }
         });
+
+        const winner = players[this.state.winner];
 
         // calculate winner's total to see if they've beaten the goal
         if (this.calculateTotal(winner.scores) >= this.state.goal) {
