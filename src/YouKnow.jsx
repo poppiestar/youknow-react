@@ -69,7 +69,7 @@ const YouKnow = React.createClass({
                 return <GameRound continue={this.moveToEnterScore} round={this.state.round} players={this.state.players} />;
 
             case Stage.ENTER_SCORE:
-                return <EnterScore continue={this.calculateWinner} players={this.state.players} winner={this.state.winner} />;
+                return <EnterScore continue={this.calculateWinner} winner={this.state.players[this.state.winner].name} />;
 
 /*
             case Stage.WINNER:

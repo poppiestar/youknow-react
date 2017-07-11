@@ -56,6 +56,7 @@ class EnterScore extends React.Component {
         return (
             <div>
                 <h1>Enter Score</h1>
+                <p>Winner: {this.props.winner}</p>
                 <p>Value: {this.state.score}</p>
                 {scoreInputs}
                 <button onClick={this.validate}>Next Round</button>
