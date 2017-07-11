@@ -33,8 +33,15 @@ export const removePlayer = (id) => {
 
 export const START_GAME = 'START_GAME';
 export const startGame = () => {
-    return {
-        type: START_GAME
+    return (dispatch, getState) => {
+        const { players } = getState();
+
+        if (players.length >= 2) {
+            dispatch({
+                type: SET_STAGE,
+                value: Stage.GAME_ROUND
+            });
+        }
     };
 };
 
