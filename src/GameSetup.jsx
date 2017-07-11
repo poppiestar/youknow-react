@@ -1,8 +1,8 @@
 
 import React, { Component } from 'react';
 
-import SetGoal from './SetGoal';
-import EnterPlayers from './EnterPlayers';
+import SetGoal from './GameSetup/SetGoal';
+import EnterPlayers from './GameSetup/EnterPlayers';
 import ErrorMessage from './ErrorMessage';
 
 export default class GameSetup extends Component {
@@ -29,10 +29,13 @@ export default class GameSetup extends Component {
             <div>
                 <h1>Player Entry</h1>
                 <ErrorMessage message={this.state.errorMessage} />
-                <SetGoal goal={this.props.goal} updateGoal={this.props.updateGoal} />
-                <EnterPlayers addPlayer={this.props.addPlayer} removePlayer={this.props.removePlayer} players={this.props.players} />
+                <GameSetup.SetGoal goal={this.props.goal} updateGoal={this.props.updateGoal} />
+                <GameSetup.EnterPlayers addPlayer={this.props.addPlayer} removePlayer={this.props.removePlayer} players={this.props.players} />
                 <button onClick={this.validate}>Start Game</button>
             </div>
         );
     }
 }
+
+GameSetup.SetGoal = SetGoal;
+GameSetup.EnterPlayers = EnterPlayers;
