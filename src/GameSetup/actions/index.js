@@ -13,6 +13,9 @@ export const addPlayer = (name) => {
     };
 }
 
-// export const removePlayer = (id) => {
-//     console.log('remove player ', id);
-// }
+export const removePlayer = (id) => {
+    return {
+        type: 'REMOVE_PLAYER',
+        value: id
+    };
+}

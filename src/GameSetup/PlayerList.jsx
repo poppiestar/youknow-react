@@ -6,7 +6,7 @@ const PlayerList = ({ players, removePlayer }) => (
         {
             players.map((player, i) => {
                 return (
-                    <li key={i}>{player.name} <button onClick={removePlayer(i)}>remove</button></li>
+                    <li key={i}>{player.name} <button onClick={() => removePlayer(i)}>remove</button></li>
                 );
             })
         }

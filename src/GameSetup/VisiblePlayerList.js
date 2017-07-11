@@ -13,7 +13,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         removePlayer: (id) => {
-            // dispatch(removePlayer(id));
+            dispatch(removePlayer(id));
         }
     };
 };
