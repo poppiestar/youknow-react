@@ -2,7 +2,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 
-import App from './App';
+import YouKnow from './YouKnow';
 
-render(<App/>, document.getElementById('main'));
+render(<YouKnow />, document.getElementById('main'));
 
