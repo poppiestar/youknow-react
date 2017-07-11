@@ -1,14 +1,15 @@
 
 import React from 'react';
 
-const goals = [300, 500, 750, 1000];
+const GOALS = [300, 500, 750, 1000];
 
-const GoalSelect = ({ goal, updateGoal }) => (
+function goalsList (goals) {
+    return goals.map((item, i) => <option key={i} value={item}>{item}</option>);
+}
+
+const GoalSelect = ({ goal, updateGoal }) =>
     <select value={goal} onChange={(e) => updateGoal(e.currentTarget.value)}>
-        {goals.map((item, i) => {
-            return <option key={i} value={item}>{item}</option>;
-        })}
+        { goalsList(GOALS) }
     </select>
-);
 
 export default GoalSelect;

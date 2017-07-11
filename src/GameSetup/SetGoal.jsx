@@ -3,11 +3,10 @@ import React from 'react';
 
 import VisibleGoalSelect from './VisibleGoalSelect';
 
-const SetGoal = () => (
+const SetGoal = () =>
     <div>
-        Set Goal:
+        <p>Set Goal:</p>
         <VisibleGoalSelect />
     </div>
-);
 
 export default SetGoal;

@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { reduceScores } from './helpers';
 
 import ScoreInput from './EnterScore/ScoreInput';
 
@@ -17,21 +18,20 @@ const CARDS = [
     { value: 50, name: "Wild" }
 ];
 
-const EnterScore = ({ winner, score, nextRound, addScore, subtractScore }) => (
-    <div>
+const EnterScore = ({ winner, nextRound, addScore, subtractScore }) => {
+    return <div>
         <h1>Enter Score</h1>
-        <p>Winner: {winner}</p>
-        <p>Value: {score}</p>
+        <p>Winner: { winner.name }</p>
+        <p>Value: { reduceScores(winner.scores) }</p>
         {
-            CARDS.map((card, i) => {
-                return (
-                    <EnterScore.ScoreInput key={i} increment={addScore} decrement={subtractScore} value={card.value} name={card.name} />
-                );
-            })
-        }
-        <button onClick={nextRound}>Next Round</button>
-    </div>
-);
+            CARDS.map((card, i) =>
+                <EnterScore.ScoreInput key={i} increment={addScore} decrement={subtractScore} value={card.value} name={card.name} />
+        )
+    }
+    <button onClick={nextRound}>Next Round</button>
+</div>
+
+}
 
 EnterScore.ScoreInput = ScoreInput;
 

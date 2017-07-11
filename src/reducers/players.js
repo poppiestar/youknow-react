@@ -10,13 +10,13 @@ function newPlayer (name) {
 
 const players = (state = [], action) => {
     switch (action.type) {
-        case 'ADD_PLAYER':
+        case ADD_PLAYER:
             return [
                 ...state,
                 newPlayer(action.value)
             ];
 
-        case 'REMOVE_PLAYER':
+        case REMOVE_PLAYER:
             return [
                 ...state.slice(0, action.value),
                 ...state.slice(action.value + 1)

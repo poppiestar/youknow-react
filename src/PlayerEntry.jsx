@@ -1,14 +1,9 @@
 
-import React, { Component } from 'react';
+import React from 'react';
 
 import SetGoal from './SetGoal';
 
-export default class GameSetup extends Component {
-    render () {
-        return (
-            <div>
-                <SetGoal goal={this.props.goal} updateGoal={this.props.updateGoal} />
-            </div>
-        );
-    }
-}
+const GameSetup = ({ goal, updateGoal }) =>
+    <SetGoal goal={this.props.goal} updateGoal={this.props.updateGoal} />
+
+export default GameSetup;

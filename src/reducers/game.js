@@ -6,16 +6,16 @@ const game = (state = { stage: Stage.GAME_SETUP, roundScore: 0 } , action) => {
 
     switch (action.type) {
         case SET_STAGE:
-            return Object.assign({}, state, { stage: action.value });
+            return { ...state, stage: action.value };
 
         case SET_WINNER:
-            return Object.assign({}, state, { roundWinner: action.value });
+            return { ...state, roundWinner: action.value };
 
         case ADD_SCORE:
-            return Object.assign({}, state, { roundScore: state.roundScore + action.value });
+            return { ...state, roundScore: state.roundScore + action.value };
 
         case SUBTRACT_SCORE:
-            return Object.assign({}, state, { roundScore: state.roundScore - action.value });;
+            return { ...state, roundScore: state.roundScore - action.value };
 
         default:
             return state;

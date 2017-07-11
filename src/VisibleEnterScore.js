@@ -6,7 +6,7 @@ import EnterScore from './EnterScore';
 
 const mapStateToProps = (state) => {
     return {
-        winner: state.players[state.game.winner]
+        winner: state.players[state.game.roundWinner]
     };
 };
 
