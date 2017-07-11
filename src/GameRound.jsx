@@ -20,7 +20,7 @@ class GameRound extends React.Component {
                 errorMessage: 'You need to select a winner to continue'
             });
         } else {
-            this.props.continue(this.state.winner);
+            this.props.continue(parseInt(this.state.winner, 10));
         }
     }
 
