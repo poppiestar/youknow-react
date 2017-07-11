@@ -1,15 +1,13 @@
 
-import React, { Component } from 'react';
+import React from 'react';
 
 import VisibleGoalSelect from './VisibleGoalSelect';
 
-export default class SetGoal extends Component {
-    render () {
-        return (
-            <div>
-                Set Goal:
-                <VisibleGoalSelect />
-            </div>
-        );
-    }
-}
+const SetGoal = () => (
+    <div>
+        Set Goal:
+        <VisibleGoalSelect />
+    </div>
+);
+
+export default SetGoal;
