@@ -4,20 +4,11 @@ import React from 'react';
 class PlayerScores extends React.Component {
     render () {
         const players = this.props.players.map((player, i) => {
-            const scores = player.scores.map((score, j) => {
-                return (
-                    <li key={j}>
-                        {score}
-                    </li>
-                );
-            });
+            const score = player.scores.reduce((prev, next) => { return prev + next });
 
             return (
                 <li key={i}>
-                    <p>{player.name}</p>
-                    <ul>
-                        {scores}
-                    </ul>
+                    <p>{player.name}: {score}</p>
                 </li>
             );
         });
