@@ -1,4 +1,12 @@
 
+export const Stage = {
+    SPLASH: 1,
+    GAME_SETUP: 2,
+    GAME_ROUND: 3,
+    ENTER_SCORE: 4,
+    WINNER: 5
+};
+
 export const SET_GOAL = 'SET_GOAL';
 export const setGoal = (goal) => {
     return {
@@ -22,3 +30,18 @@ export const removePlayer = (id) => {
         value: id
     };
 }
+
+export const START_GAME = 'START_GAME';
+export const startGame = () => {
+    return {
+        type: START_GAME
+    };
+};
+
+export const SET_STAGE = 'SET_STAGE';
+export const setStage = (stage) => {
+    return {
+        type: SET_STAGE,
+        value: stage
+    };
+};

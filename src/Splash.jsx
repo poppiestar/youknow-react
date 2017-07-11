@@ -1,14 +1,12 @@
 
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class Splash extends Component {
-    render () {
-        return (
-            <div>
-                <h1>Yo<b>u</b> K<b>no</b>w</h1>
-                <p>Keep track of your games.</p>
-                <button onClick={this.props.continue}>Begin</button>
-            </div>
-        );
-    }
-}
+const Splash = ({ moveToSetup }) => (
+    <div>
+        <h1>Yo<b>u</b> K<b>no</b>w</h1>
+        <p>Keep track of your games.</p>
+        <button onClick={moveToSetup}>Begin</button>
+    </div>
+);
+
+export default Splash;
