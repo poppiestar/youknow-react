@@ -57,7 +57,7 @@ export const SET_WINNER = 'SET_WINNER';
 export const setWinner = (winner) => {
     return {
         type: SET_WINNER,
-        value: winner
+        value: parseInt(winner, 10)
     }
 };
 
