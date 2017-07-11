@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 
 import GoalSelect from './GoalSelect';
 
-const SetGoal = React.createClass({
-    render: function render () {
+class SetGoal extends Component {
+    render () {
         return (
             <div>
                 Set Goal:
@@ -12,6 +12,5 @@ const SetGoal = React.createClass({
             </div>
         );
     }
-});
-
+}
 export default SetGoal;

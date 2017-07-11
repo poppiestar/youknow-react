@@ -3,12 +3,18 @@ import React, { Component } from 'react';
 
 const goals = [300, 500, 750, 1000];
 
-const GoalSelect = React.createClass({
-    handleChange: function updateGoal (e) {
-        this.props.updateGoal(e.currentTarget.value);
-    },
+class GoalSelect extends Component {
+    constructor (props) {
+        super(props);
 
-    render: function render () {
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange (e) {
+        this.props.updateGoal(e.currentTarget.value);
+    }
+
+    render () {
         const goalItems = goals.map((item, i) => {
             return <option key={i} value={item}>{item}</option>;
         });
@@ -19,6 +25,6 @@ const GoalSelect = React.createClass({
             </select>
         );
     }
-});
+}
 
 export default GoalSelect;
