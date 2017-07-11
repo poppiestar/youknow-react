@@ -1,22 +1,16 @@
 
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class PlayerList extends Component {
-    removePlayer (id) {
-        this.props.removePlayer(id);
-    }
+const PlayerList = ({ players, removePlayer }) => (
+    <ul>
+        {
+            players.map((player, i) => {
+                return (
+                    <li key={i}>{player.name} <button onClick={removePlayer(i)}>remove</button></li>
+                );
+            })
+        }
+    </ul>
+);
 
-    render () {
-        const players = this.props.players.map((player, i) => {
-            return (
-                <li key={i}>{player.name} <button onClick={this.removePlayer.bind(this, player)}>remove</button></li>
-            );
-        });
-
-        return (
-            <ul>
-                {players}
-            </ul>
-        );
-    }
-}
+export default PlayerList;

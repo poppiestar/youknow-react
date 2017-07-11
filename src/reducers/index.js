@@ -1,12 +1,14 @@
 
 import { combineReducers } from 'redux';
-// import players from './players';
+
+import players from './players';
 import goal from './goal';
 import stage from './stage';
 
 const youKnowApp = combineReducers({
     goal,
-    stage
+    stage,
+    players
 });
 
 export default youKnowApp;

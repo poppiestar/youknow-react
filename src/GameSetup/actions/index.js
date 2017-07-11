@@ -5,3 +5,14 @@ export const setGoal = (goal) => {
         value: goal
     }
 }
+
+export const addPlayer = (name) => {
+    return {
+        type: 'ADD_PLAYER',
+        value: name
+    };
+}
+
+// export const removePlayer = (id) => {
+//     console.log('remove player ', id);
+// }
