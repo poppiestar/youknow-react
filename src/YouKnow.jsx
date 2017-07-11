@@ -41,11 +41,14 @@ const YouKnow = React.createClass({
             scores: [0]
         };
     },
-    startGame: function startGame () {
-        this.setStage(Stage.GAME_ROUND);
-    },
     moveToSetup: function moveToSetup () {
         this.setStage(Stage.GAME_SETUP);
+    },
+    moveToGameRound: function moveToEnterScore () {
+        this.setStage(Stage.GAME_ROUND);
+    },
+    moveToEnterScore: function moveToEnterScore () {
+        this.setStage(Stage.ENTER_SCORE);
     },
     render: function render () {
         switch (this.state.stage) {
@@ -54,11 +57,11 @@ const YouKnow = React.createClass({
                 break;
 
             case Stage.GAME_SETUP:
-                return <GameSetup continue={this.startGame} addPlayer={this.addPlayer} players={this.state.players} setStage={this.setStage} goal={this.state.goal} updateGoal={this.updateGoal} />;
+                return <GameSetup continue={this.moveToGameRound} addPlayer={this.addPlayer} players={this.state.players} setStage={this.setStage} goal={this.state.goal} updateGoal={this.updateGoal} />;
                 break;
 
             case Stage.GAME_ROUND:
-                return <GameRound round={this.state.round} players={this.state.players} />;
+                return <GameRound continue={this.moveToEnterScore} round={this.state.round} players={this.state.players} />;
 
 /*
             case Stage.ENTER_SCORE:

@@ -9,7 +9,6 @@ class GameSetup extends React.Component {
         super(props);
 
         this.validate = this.validate.bind(this);
-        this.setState = this.setState.bind(this);
 
         this.state = {};
     }
@@ -17,7 +16,7 @@ class GameSetup extends React.Component {
     validate () {
         if (this.props.players.length < 2) {
             this.setState({
-                errorMessage: 'Note enough players to start the game'
+                errorMessage: 'Not enough players to start the game'
             });
         } else {
             this.props.continue();
