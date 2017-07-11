@@ -62,7 +62,7 @@ const YouKnow = React.createClass({
         // add score to winner's score table
         let players = update(this.state.players, {
             [this.state.winner]: {
-                scores: { $push: [score] } 
+                scores: { $push: [score] }
             }
         });
 
@@ -103,7 +103,7 @@ const YouKnow = React.createClass({
     },
     render: function render () {
         switch (this.state.stage) {
-            case Stage.SPLASH: 
+            case Stage.SPLASH:
                 return <Splash continue={this.moveToSetup} />;
 
             case Stage.GAME_SETUP:
@@ -125,4 +125,3 @@ const YouKnow = React.createClass({
 });
 
 export default YouKnow;
-
