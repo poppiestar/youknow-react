@@ -3,6 +3,7 @@ import React from 'react';
 
 import SetGoal from './SetGoal';
 import EnterPlayers from './EnterPlayers';
+import ErrorMessage from './ErrorMessage';
 
 class GameSetup extends React.Component {
     constructor (props) {
@@ -24,16 +25,10 @@ class GameSetup extends React.Component {
     }
 
     render () {
-        let errorMessage;
-
-        if (this.state.errorMessage) {
-            errorMessage = <p>{this.state.errorMessage}</p>;
-        }
-
         return (
             <div>
                 <h1>Player Entry</h1>
-                {errorMessage}
+                <ErrorMessage message={this.state.errorMessage} />
                 <SetGoal goal={this.props.goal} updateGoal={this.props.updateGoal} />
                 <EnterPlayers addPlayer={this.props.addPlayer} players={this.props.players} />
                 <button onClick={this.validate}>Start Game</button>

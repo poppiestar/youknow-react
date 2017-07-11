@@ -3,6 +3,7 @@ import React from 'react';
 
 import PlayerScores from './PlayerScores';
 import WinnerSelector from './WinnerSelector';
+import ErrorMessage from './ErrorMessage';
 
 class GameRound extends React.Component {
     constructor (props) {
@@ -31,16 +32,10 @@ class GameRound extends React.Component {
     }
 
     render () {
-        let errorMessage;
-
-        if (this.state.errorMessage) {
-            errorMessage = <p>{this.state.errorMessage}</p>;
-        }
-
         return (
             <div>
                 <PlayerScores players={this.props.players} />
-                {errorMessage}
+                <ErrorMessage message={this.state.errorMessage} />
                 <WinnerSelector players={this.props.players} selectWinner={this.selectWinner} />
                 <button onClick={this.validate}>Enter Score</button>
             </div>

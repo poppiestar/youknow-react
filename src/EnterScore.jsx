@@ -2,6 +2,7 @@
 import React from 'react';
 
 import ScoreInput from './ScoreInput';
+import ErrorMessage from './ErrorMessage';
 
 const CARDS = [
     { value: 1, name: "1" },
@@ -53,12 +54,6 @@ class EnterScore extends React.Component {
     }
 
     render () {
-        let errorMessage; 
-
-        if (this.state.errorMessage) {
-            errorMessage = <p>{this.state.errorMessage}</p>;
-        }
-
         const scoreInputs = CARDS.map((card, i) => {
             return (
                 <ScoreInput key={i} increment={this.incrementScore} decrement={this.decrementScore} value={card.value} name={card.name} />
@@ -68,7 +63,7 @@ class EnterScore extends React.Component {
         return (
             <div>
                 <h1>Enter Score</h1>
-                {errorMessage}
+                <ErrorMessage message={this.state.errorMessage} />
                 <p>Winner: {this.props.winner}</p>
                 <p>Value: {this.state.score}</p>
                 {scoreInputs}
