@@ -1,8 +1,8 @@
 
 import React, { Component } from 'react';
 
-import PlayerScores from './PlayerScores';
-import WinnerSelector from './WinnerSelector';
+import PlayerScores from './GameRound/PlayerScores';
+import WinnerSelector from './GameRound/WinnerSelector';
 import ErrorMessage from './ErrorMessage';
 
 export default class GameRound extends Component {
@@ -34,11 +34,14 @@ export default class GameRound extends Component {
     render () {
         return (
             <div>
-                <PlayerScores players={this.props.players} />
+                <GameRound.PlayerScores players={this.props.players} />
                 <ErrorMessage message={this.state.errorMessage} />
-                <WinnerSelector players={this.props.players} selectWinner={this.selectWinner} />
+                <GameRound.WinnerSelector players={this.props.players} selectWinner={this.selectWinner} />
                 <button onClick={this.validate}>Enter Score</button>
             </div>
         );
     }
 }
+
+GameRound.PlayerScores = PlayerScores;
+GameRound.WinnerSelector = WinnerSelector;
