@@ -1,6 +1,5 @@
 
 import React from 'react';
-import update from 'react-addons-update';
 
 import VisibleSplash from './VisibleSplash';
 import VisibleGameSetup from './VisibleGameSetup';
@@ -8,13 +7,7 @@ import VisibleGameRound from './VisibleGameRound';
 import VisibleEnterScore from './VisibleEnterScore';
 import Winner from './Winner';
 
-const Stage = {
-    SPLASH: 1,
-    GAME_SETUP: 2,
-    GAME_ROUND: 3,
-    ENTER_SCORE: 4,
-    WINNER: 5
-};
+import Stage from './constants/stages';
 
 const YouKnow = ({ goal, game, players }) => {
     switch (game.stage) {

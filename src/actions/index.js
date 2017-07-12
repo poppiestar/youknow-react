@@ -1,11 +1,6 @@
 
-export const Stage = {
-    SPLASH: 1,
-    GAME_SETUP: 2,
-    GAME_ROUND: 3,
-    ENTER_SCORE: 4,
-    WINNER: 5
-};
+import Stage from '../constants/stages';
+import { reduceScores } from '../helpers';
 
 export const SET_GOAL = 'SET_GOAL';
 export const setGoal = (goal) => {
@@ -75,7 +70,27 @@ export const roundOver = () => {
 export const NEXT_ROUND = 'NEXT_ROUND';
 export const nextRound = () => {
     // TODO: calculate whether the winner has won
-    return setStage(Stage.GAME_ROUND);
+    return (dispatch, getState) => {
+        const { game, players } = getState();
+        const winner = players[game.roundWinner];
+
+        dispatch(setPlayerScore(game.roundWinner, game.roundScore));
+
+
+        // const winnerScore = reduceScores(winner.scores);
+
+
+        return setStage(Stage.GAME_ROUND);
+    };
+};
+
+export const SET_PLAYER_SCORE = 'SET_PLAYER_SCORE';
+export const setPlayerScore = (winner, score) => {
+    return {
+        type: SET_PLAYER_SCORE,
+        winner,
+        score
+    };
 };
 
 export const ADD_SCORE = 'ADD_SCORE';
