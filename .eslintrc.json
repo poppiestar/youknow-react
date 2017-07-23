@@ -17,6 +17,7 @@
     "plugin:flowtype/recommended"
   ],
   "rules": {
-    "semi": 1
+    "semi": ["error"],
+    "indent": ["error", 4]
   }
 }

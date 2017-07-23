@@ -17,10 +17,10 @@ type GameRoundPropTypes = {
 };
 
 const GameRound = ({ players, roundOver }: GameRoundPropTypes): Element<any> =>
-  <div>
-    <PlayerScores players={players} />
-    <VisibleWinnerSelector />
-    <button onClick={roundOver}>Enter Score</button>
-  </div>;
+    <div>
+        <PlayerScores players={players} />
+        <VisibleWinnerSelector />
+        <button onClick={roundOver}>Enter Score</button>
+    </div>;
 
 export default GameRound;

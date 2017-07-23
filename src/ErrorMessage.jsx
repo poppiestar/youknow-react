@@ -8,6 +8,6 @@ type ErrorMessagePropTypes = {
 };
 
 const ErrorMessage = ({ message }: ErrorMessagePropTypes): Element<any> =>
-  <p className="error">{message}</p>;
+    <p className="error">{message}</p>;
 
 export default ErrorMessage;

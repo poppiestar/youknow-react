@@ -14,12 +14,12 @@ type Player = {
 };
 
 const PlayerList = ({ players, removePlayer }: PlayerListPropTypes): Element<any> =>
-  <ul>
-    {
-      players.map((player, i) =>
-        <li key={i}>{player.name} <button onClick={() => removePlayer(i)}>remove</button></li>
-      )
-    }
-  </ul>;
+    <ul>
+        {
+            players.map((player, i) =>
+                <li key={i}>{player.name} <button onClick={() => removePlayer(i)}>remove</button></li>
+            )
+        }
+    </ul>;
 
 export default PlayerList;

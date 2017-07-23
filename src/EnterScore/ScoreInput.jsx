@@ -21,37 +21,37 @@ class ScoreInput extends Component {
   decrement: () => void
 
   constructor (props: ScoreInputPropTypes): void {
-    super(props);
+      super(props);
 
-    this.decrement = this.decrement.bind(this);
-    this.increment = this.increment.bind(this);
+      this.decrement = this.decrement.bind(this);
+      this.increment = this.increment.bind(this);
 
-    this.state = {
-      count: 0
-    };
+      this.state = {
+          count: 0
+      };
   }
 
   increment (): void {
-    this.props.increment(this.props.value);
-    this.setState({ count: this.state.count + 1 });
+      this.props.increment(this.props.value);
+      this.setState({ count: this.state.count + 1 });
   }
 
   decrement (): void {
-    if (this.state.count > 0) {
-      this.props.decrement(this.props.value);
-      this.setState({ count: this.state.count - 1});
-    }
+      if (this.state.count > 0) {
+          this.props.decrement(this.props.value);
+          this.setState({ count: this.state.count - 1});
+      }
   }
 
   render () {
-    return (
-      <div>
-        {this.props.name}
-        <button className="decrement" onClick={this.decrement}>-</button>
-        <span className="count">{this.state.count}</span>
-        <button className="increment" onClick={this.increment}>+</button>
-      </div>
-    );
+      return (
+          <div>
+              {this.props.name}
+              <button className="decrement" onClick={this.decrement}>-</button>
+              <span className="count">{this.state.count}</span>
+              <button className="increment" onClick={this.increment}>+</button>
+          </div>
+      );
   }
 }
 

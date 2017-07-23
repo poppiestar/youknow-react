@@ -15,19 +15,19 @@ type Player = {
 };
 
 function playersList (players: Array<Player>): Array<Element<any>> {
-  return players.map((player: Player, i: number) =>
-    <li key={i}>
-      <p>{player.name}: {reduceScores(player.scores)}</p>
-    </li>
-  );
+    return players.map((player: Player, i: number) =>
+        <li key={i}>
+            <p>{player.name}: {reduceScores(player.scores)}</p>
+        </li>
+    );
 }
 
 const PlayerScores = ({ players }: PlayerScorePropTypes) =>
-  <div>
-    <h2>Player Scores</h2>
-    <ul>
-      { playersList(players) }
-    </ul>
-  </div>;
+    <div>
+        <h2>Player Scores</h2>
+        <ul>
+            { playersList(players) }
+        </ul>
+    </div>;
 
 export default PlayerScores;

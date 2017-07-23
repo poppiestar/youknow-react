@@ -8,7 +8,7 @@
     "build": "webpack",
     "start": "servedir .",
     "flow": "flow",
-    "lint": "eslint"
+    "lint": "eslint --ext .js --ext .jsx ."
   },
   "keywords": [
     "react",

@@ -8,10 +8,10 @@ type SplashPropTypes = {
 };
 
 const Splash = ({ moveToSetup }: SplashPropTypes): Element<any> =>
-  <div>
-    <h1>Yo<b>u</b> K<b>no</b>w</h1>
-    <p>Keep track of your games.</p>
-    <button onClick={moveToSetup}>Begin</button>
-  </div>;
+    <div>
+        <h1>Yo<b>u</b> K<b>no</b>w</h1>
+        <p>Keep track of your games.</p>
+        <button onClick={moveToSetup}>Begin</button>
+    </div>;
 
 export default Splash;

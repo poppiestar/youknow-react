@@ -11,12 +11,12 @@ type GoalSelectPropTypes = {
 };
 
 function goalsList (goals): Array<Element<any>> {
-  return goals.map((item, i) => <option key={i} value={item}>{item}</option>);
+    return goals.map((item, i) => <option key={i} value={item}>{item}</option>);
 }
 
 const GoalSelect = ({ goal, updateGoal }: GoalSelectPropTypes): Element<any> =>
-  <select value={goal} onChange={(e: Event & { currentTarget: HTMLSelectElement }) => updateGoal(e.currentTarget.value)}>
-    { goalsList(GOALS) }
-  </select>;
+    <select value={goal} onChange={(e: Event & { currentTarget: HTMLSelectElement }) => updateGoal(e.currentTarget.value)}>
+        { goalsList(GOALS) }
+    </select>;
 
 export default GoalSelect;

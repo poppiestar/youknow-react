@@ -14,27 +14,27 @@ class NewPlayer extends Component {
   addPlayer: () => void
 
   constructor(props: NewPlayerPropTypes): void {
-    super(props);
+      super(props);
 
-    this.addPlayer = this.addPlayer.bind(this);
+      this.addPlayer = this.addPlayer.bind(this);
   }
 
   addPlayer (): void {
-    const name = this.textInput.value;
+      const name = this.textInput.value;
 
-    if (name !== '') {
-      this.props.addPlayer(name);
-      this.textInput.value = '';
-    }
+      if (name !== '') {
+          this.props.addPlayer(name);
+          this.textInput.value = '';
+      }
   }
 
   render (): Element<any> {
-    return (
-      <div>
-        <input type="text" ref={(input: HTMLInputElement) => { this.textInput = input; }} />
-        <button onClick={this.addPlayer}>Add</button>
-      </div>
-    );
+      return (
+          <div>
+              <input type="text" ref={(input: HTMLInputElement) => { this.textInput = input; }} />
+              <button onClick={this.addPlayer}>Add</button>
+          </div>
+      );
   }
 }
 

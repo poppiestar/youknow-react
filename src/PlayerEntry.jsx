@@ -11,6 +11,6 @@ type GameSetupPropTypes = {
 };
 
 const GameSetup = ({ goal, updateGoal }: GameSetupPropTypes): Element<any> =>
-  <SetGoal goal={goal} updateGoal={updateGoal} />;
+    <SetGoal goal={goal} updateGoal={updateGoal} />;
 
 export default GameSetup;

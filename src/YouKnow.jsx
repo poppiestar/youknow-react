@@ -20,43 +20,43 @@ type YouKnowPropTypes = {
 };
 
 const YouKnow = ({ game }: YouKnowPropTypes): Element<any> => {
-  switch (game.stage) {
+    switch (game.stage) {
     case Stage.SPLASH:
-      return <VisibleSplash />;
+        return <VisibleSplash />;
 
     case Stage.GAME_SETUP:
-      return <VisibleGameSetup />;
+        return <VisibleGameSetup />;
 
     case Stage.GAME_ROUND:
-      return <VisibleGameRound />;
+        return <VisibleGameRound />;
 
     case Stage.ENTER_SCORE:
-      return <VisibleEnterScore />;
+        return <VisibleEnterScore />;
 
     // case Stage.WINNER:
     //   return <Winner winner={this.state.players[this.state.winner]} restartGame={this.restartGame} resetGame={this.resetGame} />;
 
     default:
-      return <VisibleSplash />;
-  }
+        return <VisibleSplash />;
+    }
 };
 
-    // restartGame: function restartGame () {
-    //     this.setState({
-    //         stage: Stage.GAME_ROUND,
-    //         goal: this.props.goal,
-    //         players: this.state.players.map( (player) => {
-    //             return this.newPlayer(player.name);
-    //         })
-    //     });
-    // },
-    // resetGame: function resetGame () {
-    //     this.setState({
-    //         players: [],
-    //         goal: 500,
-    //         stage: Stage.GAME_SETUP
-    //     });
-    // },
+// restartGame: function restartGame () {
+//     this.setState({
+//         stage: Stage.GAME_ROUND,
+//         goal: this.props.goal,
+//         players: this.state.players.map( (player) => {
+//             return this.newPlayer(player.name);
+//         })
+//     });
+// },
+// resetGame: function resetGame () {
+//     this.setState({
+//         players: [],
+//         goal: 500,
+//         stage: Stage.GAME_SETUP
+//     });
+// },
 //     render: function render () {
 //     }
 // });

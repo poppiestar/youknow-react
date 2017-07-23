@@ -17,8 +17,8 @@ let store = createStore(
 );
 
 render(
-  <Provider store={store}>
-    <VisibleYouKnow />
-  </Provider>,
-  document.getElementById('main')
+    <Provider store={store}>
+        <VisibleYouKnow />
+    </Provider>,
+    document.getElementById('main')
 );

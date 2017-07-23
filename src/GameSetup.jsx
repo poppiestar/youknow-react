@@ -12,11 +12,11 @@ type GameSetupPropTypes = {
 };
 
 const GameSetup = ({ startGame }: GameSetupPropTypes): Element<any> =>
-  <div>
-    <h1>Player Entry</h1>
-    <SetGoal />
-    <EnterPlayers />
-    <button onClick={startGame}>Start Game</button>
-  </div>;
+    <div>
+        <h1>Player Entry</h1>
+        <SetGoal />
+        <EnterPlayers />
+        <button onClick={startGame}>Start Game</button>
+    </div>;
 
 export default GameSetup;
