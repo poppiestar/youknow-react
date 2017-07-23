@@ -20,7 +20,7 @@ export const removePlayer = (id: number): Action => ({
     id
 });
 
-export const startGame = (): ThunkAction => (dispatch: Dispatch, getState: GetState): void => {
+export const startGame = (): ThunkAction => (dispatch: Dispatch, getState: GetState) => {
     const { players } = getState();
 
     if (players.length >= 2) {
