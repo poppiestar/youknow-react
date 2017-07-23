@@ -20,23 +20,23 @@ type YouKnowPropTypes = {
 
 const YouKnow = ({ game }: YouKnowPropTypes) => {
     switch (game.stage) {
-    case Stage.SPLASH:
-        return <VisibleSplash />;
+        case Stage.SPLASH:
+            return <VisibleSplash />;
 
-    case Stage.GAME_SETUP:
-        return <VisibleGameSetup />;
+        case Stage.GAME_SETUP:
+            return <VisibleGameSetup />;
 
-    case Stage.GAME_ROUND:
-        return <VisibleGameRound />;
+        case Stage.GAME_ROUND:
+            return <VisibleGameRound />;
 
-    case Stage.ENTER_SCORE:
-        return <VisibleEnterScore />;
+        case Stage.ENTER_SCORE:
+            return <VisibleEnterScore />;
 
-    // case Stage.WINNER:
-    //   return <Winner winner={this.state.players[this.state.winner]} restartGame={this.restartGame} resetGame={this.resetGame} />;
+            // case Stage.WINNER:
+            //   return <Winner winner={this.state.players[this.state.winner]} restartGame={this.restartGame} resetGame={this.resetGame} />;
 
-    default:
-        return <VisibleSplash />;
+        default:
+            return <VisibleSplash />;
     }
 };
 

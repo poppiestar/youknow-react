@@ -4,11 +4,11 @@ import { SET_GOAL } from '../actions';
 
 const goalOptions = (state: number = 300, action: string) => {
     switch (action.type) {
-    case SET_GOAL:
-        return parseInt(action.goal, 10);
+        case 'SET_GOAL':
+            return parseInt(action.goal, 10);
 
-    default:
-        return state;
+        default:
+            return state;
     }
 };
 
