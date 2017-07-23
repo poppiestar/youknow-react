@@ -9,11 +9,10 @@ export type Props = {
   setWinner: (value: string) => void
 };
 
-function playersList(players: Array<Player>): Array<any> {
-    return players.map((player: Player, i: number) =>
+const playersList = (players: Array<Player>): Array<any> =>
+    players.map((player: Player, i: number) =>
         <option key={i} value={i}>{player.name}</option>
     );
-}
 
 const WinnerSelector = ({ players, setWinner }: Props) =>
     <select onChange={(e: Event & { currentTarget: HTMLSelectElement }) => setWinner(e.currentTarget.value)}>

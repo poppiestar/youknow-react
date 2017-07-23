@@ -9,9 +9,8 @@ export type Props = {
   updateGoal: (value: string) => void
 };
 
-function goalsList (goals): Array<any> {
-    return goals.map((item, i) => <option key={i} value={item}>{item}</option>);
-}
+const goalsList = (goals): Array<any> =>
+    goals.map((item, i) => <option key={i} value={item}>{item}</option>);
 
 const GoalSelect = ({ goal, updateGoal }: Props) =>
     <select value={goal} onChange={(e: Event & { currentTarget: HTMLSelectElement }) => updateGoal(e.currentTarget.value)}>

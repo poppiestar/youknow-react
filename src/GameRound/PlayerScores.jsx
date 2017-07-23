@@ -10,13 +10,12 @@ type PlayerScorePropTypes = {
   players: Array<Player>
 };
 
-function playersList (players: Array<Player>): Array<any> {
-    return players.map((player: Player, i: number) =>
+const playersList = (players: Array<Player>): Array<any> =>
+    players.map((player: Player, i: number) =>
         <li key={i}>
             <p>{player.name}: {reduceScores(player.scores)}</p>
         </li>
     );
-}
 
 const PlayerScores = ({ players }: PlayerScorePropTypes) =>
     <div>
