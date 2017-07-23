@@ -10,10 +10,10 @@ const defaultState = {
 const game = (state = defaultState, action) => {
     switch (action.type) {
     case SET_STAGE:
-        return Object.assign({}, state, { stage: action.value });
+        return Object.assign({}, state, { stage: action.stage });
 
     case SET_WINNER:
-        return Object.assign({}, state, { roundWinner: action.value });
+        return Object.assign({}, state, { roundWinner: action.winner });
 
     case ADD_SCORE:
         return Object.assign({}, state, { roundScore: state.roundScore + action.value });

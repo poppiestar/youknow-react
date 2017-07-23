@@ -8,19 +8,19 @@ import type { Action, Dispatch, GetState, ThunkAction } from '../types';
 export const SET_GOAL = 'SET_GOAL';
 export const setGoal = (goal: number): Action => ({
     type: SET_GOAL,
-    value: goal
+    goal
 });
 
 export const ADD_PLAYER = 'ADD_PLAYER';
 export const addPlayer = (name: string): Action => ({
     type: ADD_PLAYER,
-    value: name
+    name
 });
 
 export const REMOVE_PLAYER = 'REMOVE_PLAYER';
 export const removePlayer = (id: number): Action => ({
     type: REMOVE_PLAYER,
-    value: id
+    id
 });
 
 export const START_GAME = 'START_GAME';
@@ -35,7 +35,7 @@ export const startGame = (): ThunkAction => (dispatch: Dispatch, getState: GetSt
 export const SET_STAGE = 'SET_STAGE';
 export const setStage = (stage: number): Action => ({
     type: SET_STAGE,
-    value: stage
+    stage
 });
 
 export const SET_WINNER = 'SET_WINNER';
@@ -77,11 +77,11 @@ export const setPlayerScore = (winner: number, score: number): Action => ({
 export const ADD_SCORE = 'ADD_SCORE';
 export const addScore = (value: number): Action => ({
     type: ADD_SCORE,
-    value: value
+    value
 });
 
 export const SUBTRACT_SCORE = 'SUBTRACT_SCORE';
 export const subtractScore = (value: number): Action => ({
     type: SUBTRACT_SCORE,
-    value: value
+    value
 });
