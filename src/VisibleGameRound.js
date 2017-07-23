@@ -21,7 +21,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
     }
 });
 
-const VisibleGameRound: Connector<{}, Props> = connect(
+const VisibleGameRound: Connector<Props, {}> = connect(
     mapStateToProps,
     mapDispatchToProps
 )(GameRound);

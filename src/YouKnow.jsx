@@ -14,11 +14,11 @@ type Game = {
   stage: number
 };
 
-type YouKnowPropTypes = {
+export type Props = {
   game: Game
 };
 
-const YouKnow = ({ game }: YouKnowPropTypes) => {
+const YouKnow = ({ game }: Props) => {
     switch (game.stage) {
         case Stage.SPLASH:
             return <VisibleSplash />;
