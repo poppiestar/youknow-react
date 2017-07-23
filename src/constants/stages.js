@@ -1,6 +1,6 @@
 // @flow
 
-const Stage = {
+const Stage: { [string]: number } = {
     SPLASH: 1,
     GAME_SETUP: 2,
     GAME_ROUND: 3,
