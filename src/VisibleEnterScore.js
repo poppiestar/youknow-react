@@ -1,30 +1,32 @@
+// @flow
 
 import { connect } from 'react-redux';
 
-import { nextRound, addScore, subtractScore } from './actions';
+import type { Dispatch } from 'redux';
+import type { State } from './types';
+import type { Connector } from 'react-redux';
+import type { Props } from './EnterScore';
+
+import { addScore, subtractScore } from './actions';
 import EnterScore from './EnterScore';
 
-const mapStateToProps = (state) => {
-    return {
-        winner: state.players[state.game.roundWinner]
-    };
-};
+const mapStateToProps = ({ players, game }: State) => ({
+    winner: game.roundWinner && players[game.roundWinner]
+});
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        addScore: (value) => {
-            dispatch(addScore(value));
-        },
-        subtractScore: (value) => {
-            dispatch(subtractScore(value));
-        },
-        nextRound: () => {
-            dispatch(nextRound());
-        }
-    };
-};
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+    addScore: (value: number) => {
+        dispatch(addScore(value));
+    },
+    subtractScore: (value: number) => {
+        dispatch(subtractScore(value));
+    }
+    // nextRound: () => {
+    //     dispatch(nextRound());
+    // }
+});
 
-const VisibleEnterScore = connect(
+const VisibleEnterScore: Connector<{}, Props> = connect(
     mapStateToProps,
     mapDispatchToProps
 )(EnterScore);

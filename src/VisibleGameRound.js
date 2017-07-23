@@ -1,25 +1,27 @@
+// @flow
 
 import { connect } from 'react-redux';
+
+import type { Dispatch } from 'redux';
+import type { State } from './types';
+import type { Connector } from 'react-redux';
+import type { Props } from './GameRound';
 
 import { roundOver } from './actions';
 import GameRound from './GameRound';
 
-const mapStateToProps = (state) => {
-    return {
-        players: state.players,
-        score: state.game.roundScore
-    };
-};
+const mapStateToProps = ({ players, game }: State) => ({
+    score: game.roundScore,
+    players
+});
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        roundOver: (winner) => {
-            dispatch(roundOver(winner));
-        }
-    };
-};
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+    roundOver: () => {
+        dispatch(roundOver());
+    }
+});
 
-const VisibleGameRound = connect(
+const VisibleGameRound: Connector<{}, Props> = connect(
     mapStateToProps,
     mapDispatchToProps
 )(GameRound);

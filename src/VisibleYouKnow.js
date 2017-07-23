@@ -2,13 +2,11 @@
 import { connect } from 'react-redux';
 import YouKnow from './YouKnow';
 
-const mapStateToProps = (state) => {
-    return {
-        goal: state.goal,
-        game: state.game,
-        players: state.players
-    };
-};
+const mapStateToProps = ({ goal, game, players }) => ({
+    goal,
+    game,
+    players
+});
 
 const VisibleYouKnow = connect(
     mapStateToProps

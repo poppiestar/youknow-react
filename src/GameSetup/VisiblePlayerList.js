@@ -1,24 +1,26 @@
+// @flow
 
 import { connect } from 'react-redux';
+
+import type { Dispatch } from 'redux';
+import type { State } from '../types';
+import type { Connector } from 'react-redux';
+import type { Props } from './PlayerList';
 
 import { removePlayer } from '../actions';
 import PlayerList from './PlayerList';
 
-const mapStateToProps = (state) => {
-    return {
-        players: state.players
-    };
-};
+const mapStateToProps = ({ players }: State) => ({
+    players
+});
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        removePlayer: (id) => {
-            dispatch(removePlayer(id));
-        }
-    };
-};
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+    removePlayer: (id: number) => {
+        dispatch(removePlayer(id));
+    }
+});
 
-const VisiblePlayerList = connect(
+const VisiblePlayerList: Connector<{}, Props> = connect(
     mapStateToProps,
     mapDispatchToProps
 )(PlayerList);
