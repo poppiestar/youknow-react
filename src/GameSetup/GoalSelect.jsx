@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-const GOALS = [300, 500, 750, 1000];
+const GOALS: Array<number> = [300, 500, 750, 1000];
 
 type GoalSelectPropTypes = {
   goal: number,
