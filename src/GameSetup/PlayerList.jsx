@@ -1,7 +1,6 @@
 // @flow
 
 import React from 'react';
-import type { Element } from 'react';
 
 type PlayerListPropTypes = {
   players: Array<Player>,
@@ -13,7 +12,7 @@ type Player = {
   scores: Array<number>
 };
 
-const PlayerList = ({ players, removePlayer }: PlayerListPropTypes): Element<any> =>
+const PlayerList = ({ players, removePlayer }: PlayerListPropTypes) =>
     <ul>
         {
             players.map((player, i) =>

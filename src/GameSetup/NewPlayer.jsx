@@ -1,7 +1,6 @@
 // @flow
 
 import React, { Component } from 'react';
-import type { Element } from 'react';
 
 type NewPlayerPropTypes = {
   addPlayer: (name: string) => any
@@ -28,7 +27,7 @@ class NewPlayer extends Component {
       }
   }
 
-  render (): Element<any> {
+  render () {
       return (
           <div>
               <input type="text" ref={(input: HTMLInputElement) => { this.textInput = input; }} />

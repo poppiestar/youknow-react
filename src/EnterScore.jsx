@@ -1,7 +1,6 @@
 // @flow
 
 import React from 'react';
-import type { Element } from 'react';
 
 import { reduceScores } from './helpers';
 
@@ -38,7 +37,7 @@ const CARDS = [
     { value: 50, name: "Wild" }
 ];
 
-const EnterScore = ({ winner, nextRound, addScore, subtractScore }: EnterScorePropTypes): Element<any> =>
+const EnterScore = ({ winner, nextRound, addScore, subtractScore }: EnterScorePropTypes) =>
     <div>
         <h1>Enter Score</h1>
         <p>Winner: { winner.name }</p>

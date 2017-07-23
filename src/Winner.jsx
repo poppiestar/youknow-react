@@ -1,7 +1,6 @@
 // @flow
 
 import React from 'react';
-import type { Element } from 'react';
 
 import { reduceScores } from './helpers';
 
@@ -16,7 +15,7 @@ type Player = {
   scores: Array<number>
 };
 
-const Winner = ({ winner, restartGame, resetGame }: WinnerPropTypes): Element<any> => {
+const Winner = ({ winner, restartGame, resetGame }: WinnerPropTypes) => {
     const { name, scores } = winner;
 
     return (

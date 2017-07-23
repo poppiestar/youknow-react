@@ -1,11 +1,10 @@
 // @flow
 
 import React from 'react';
-import type { Element } from 'react';
 
 import VisibleGoalSelect from './VisibleGoalSelect';
 
-const SetGoal = (): Element<any> =>
+const SetGoal = () =>
     <div>
         <p>Set Goal:</p>
         <VisibleGoalSelect />

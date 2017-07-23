@@ -1,7 +1,6 @@
 // @flow
 
 import React from 'react';
-import type { Element } from 'react';
 
 type WinnerSelectorPropTypes = {
   players: Array<Player>,
@@ -13,13 +12,13 @@ type Player = {
   scores: Array<number>
 };
 
-function playersList(players: Array<Player>): Array<Element<any>> {
+function playersList(players: Array<Player>): Array<any> {
     return players.map((player: Player, i: number) =>
         <option key={i} value={i}>{player.name}</option>
     );
 }
 
-const WinnerSelector = ({ players, setWinner }: WinnerSelectorPropTypes): Element<any> =>
+const WinnerSelector = ({ players, setWinner }: WinnerSelectorPropTypes) =>
     <select onChange={(e: Event & { currentTarget: HTMLSelectElement }) => setWinner(e.currentTarget.value)}>
         <option value="">Who won?</option>
         { playersList(players) }

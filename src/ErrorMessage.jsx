@@ -1,13 +1,12 @@
 // @flow
 
 import React from 'react';
-import type { Element } from 'react';
 
 type ErrorMessagePropTypes = {
   message: string
 };
 
-const ErrorMessage = ({ message }: ErrorMessagePropTypes): Element<any> =>
+const ErrorMessage = ({ message }: ErrorMessagePropTypes) =>
     <p className="error">{message}</p>;
 
 export default ErrorMessage;

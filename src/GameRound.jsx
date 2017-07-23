@@ -1,7 +1,6 @@
 // @flow
 
 import React from 'react';
-import type { Element } from 'react';
 
 import PlayerScores from './GameRound/PlayerScores';
 import VisibleWinnerSelector from './GameRound/VisibleWinnerSelector';
@@ -16,7 +15,7 @@ type GameRoundPropTypes = {
   roundOver: () => void
 };
 
-const GameRound = ({ players, roundOver }: GameRoundPropTypes): Element<any> =>
+const GameRound = ({ players, roundOver }: GameRoundPropTypes) =>
     <div>
         <PlayerScores players={players} />
         <VisibleWinnerSelector />

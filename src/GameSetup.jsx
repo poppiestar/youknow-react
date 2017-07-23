@@ -1,7 +1,6 @@
 // @flow
 
 import React from 'react';
-import type { Element } from 'react';
 
 import SetGoal from './GameSetup/SetGoal';
 import EnterPlayers from './GameSetup/EnterPlayers';
@@ -11,7 +10,7 @@ type GameSetupPropTypes = {
   startGame: () => void
 };
 
-const GameSetup = ({ startGame }: GameSetupPropTypes): Element<any> =>
+const GameSetup = ({ startGame }: GameSetupPropTypes) =>
     <div>
         <h1>Player Entry</h1>
         <SetGoal />

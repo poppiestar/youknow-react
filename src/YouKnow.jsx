@@ -1,7 +1,6 @@
 // @flow
 
 import React from 'react';
-import type { Element } from 'react';
 
 import VisibleSplash from './VisibleSplash';
 import VisibleGameSetup from './VisibleGameSetup';
@@ -19,7 +18,7 @@ type YouKnowPropTypes = {
   game: Game
 };
 
-const YouKnow = ({ game }: YouKnowPropTypes): Element<any> => {
+const YouKnow = ({ game }: YouKnowPropTypes) => {
     switch (game.stage) {
     case Stage.SPLASH:
         return <VisibleSplash />;

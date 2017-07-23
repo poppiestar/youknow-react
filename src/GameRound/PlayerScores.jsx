@@ -1,7 +1,6 @@
 // @flow
 
 import React from 'react';
-import type { Element } from 'react';
 
 import { reduceScores } from '../helpers';
 
@@ -14,7 +13,7 @@ type Player = {
   scores: Array<number>
 };
 
-function playersList (players: Array<Player>): Array<Element<any>> {
+function playersList (players: Array<Player>): Array<any> {
     return players.map((player: Player, i: number) =>
         <li key={i}>
             <p>{player.name}: {reduceScores(player.scores)}</p>
