@@ -1,22 +1,29 @@
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-export default class NewPlayer extends Component {
+class NewPlayer extends Component {
     addPlayer () {
-        const name = this.refs.name.value;
+        const name = this.textInput.value;
 
         if (name !== '') {
             this.props.addPlayer(name);
-            this.refs.name.value = '';
+            this.textInput.value = '';
         }
     }
 
     render () {
         return (
             <div>
-                <input type="text" ref="name" />
+                <input type="text" ref={(input) => { this.textInput = input; }} />
                 <button onClick={this.addPlayer.bind(this)}>Add</button>
             </div>
         );
     }
 }
+
+NewPlayer.propTypes = {
+  addPlayer: PropTypes.func.isRequired
+};
+
+export default NewPlayer;

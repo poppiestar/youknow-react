@@ -9,6 +9,6 @@ const goalOptions = (state = 300, action) => {
         default:
             return state;
     }
-}
+};
 
 export default goalOptions;

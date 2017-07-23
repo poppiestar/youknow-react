@@ -1,5 +1,6 @@
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import VisibleSplash from './VisibleSplash';
 import VisibleGameSetup from './VisibleGameSetup';
@@ -9,7 +10,7 @@ import Winner from './Winner';
 
 import Stage from './constants/stages';
 
-const YouKnow = ({ goal, game, players }) => {
+const YouKnow = ({ game }) => {
     switch (game.stage) {
         case Stage.SPLASH:
             return <VisibleSplash />;
@@ -28,7 +29,11 @@ const YouKnow = ({ goal, game, players }) => {
 
         default:
             return <VisibleSplash />;
-    };
+    }
+};
+
+YouKnow.propTypes = {
+  game: PropTypes.object.isRequired
 };
 
     // restartGame: function restartGame () {

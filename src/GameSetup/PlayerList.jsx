@@ -1,5 +1,6 @@
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const PlayerList = ({ players, removePlayer }) => (
     <ul>
@@ -10,5 +11,10 @@ const PlayerList = ({ players, removePlayer }) => (
         }
     </ul>
 );
+
+PlayerList.propTypes = {
+  players: PropTypes.array.isRequired,
+  removePlayer: PropTypes.func.isRequired
+};
 
 export default PlayerList;

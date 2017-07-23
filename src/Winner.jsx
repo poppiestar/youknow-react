@@ -1,5 +1,6 @@
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Winner = ({ winner, restartGame, resetGame }) => {
     const { name, scores } = winner;
@@ -15,6 +16,15 @@ const Winner = ({ winner, restartGame, resetGame }) => {
             <button onClick={resetGame}>New Players</button>
         </div>
     );
-}
+};
+
+Winner.propTypes = {
+  winner: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    scores: PropTypes.arrayOf(PropTypes.number).isRequired
+  }),
+  restartGame: PropTypes.func.isRequired,
+  resetGame: PropTypes.func.isRequired
+};
 
 export default Winner;

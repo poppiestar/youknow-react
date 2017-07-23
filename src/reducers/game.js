@@ -2,9 +2,12 @@
 import { SET_STAGE, SET_WINNER, ADD_SCORE, SUBTRACT_SCORE } from '../actions';
 import Stage from '../constants/stages';
 
-const game = (state = { stage: Stage.GAME_SETUP, roundScore: 0 } , action) => {
-    let newState;
+const defaultState = {
+    stage: Stage.GAME_SETUP,
+    roundScore: 0
+};
 
+const game = (state = defaultState, action) => {
     switch (action.type) {
         case SET_STAGE:
             return Object.assign({}, state, { stage: action.value });
@@ -21,6 +24,6 @@ const game = (state = { stage: Stage.GAME_SETUP, roundScore: 0 } , action) => {
         default:
             return state;
     }
-}
+};
 
 export default game;

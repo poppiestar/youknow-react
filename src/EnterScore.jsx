@@ -1,5 +1,6 @@
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import { reduceScores } from './helpers';
 
 import ScoreInput from './EnterScore/ScoreInput';
@@ -18,21 +19,26 @@ const CARDS = [
     { value: 50, name: "Wild" }
 ];
 
-const EnterScore = ({ winner, nextRound, addScore, subtractScore }) => {
-    return <div>
-        <h1>Enter Score</h1>
-        <p>Winner: { winner.name }</p>
-        <p>Value: { reduceScores(winner.scores) }</p>
-        {
-            CARDS.map((card, i) =>
-                <EnterScore.ScoreInput key={i} increment={addScore} decrement={subtractScore} value={card.value} name={card.name} />
-        )
+const EnterScore = ({ winner, nextRound, addScore, subtractScore }) =>
+  <div>
+    <h1>Enter Score</h1>
+    <p>Winner: { winner.name }</p>
+    <p>Value: { reduceScores(winner.scores) }</p>
+    {
+      CARDS.map((card, i) =>
+        <EnterScore.ScoreInput key={i} increment={addScore} decrement={subtractScore} value={card.value} name={card.name} />
+      )
     }
     <button onClick={nextRound}>Next Round</button>
-</div>
-
-}
+  </div>;
 
 EnterScore.ScoreInput = ScoreInput;
+
+EnterScore.propTypes = {
+  winner: PropTypes.number.isRequired,
+  nextRound: PropTypes.func.isRequired,
+  addScore: PropTypes.func.isRequired,
+  subtractScore: PropTypes.func.isRequired
+};
 
 export default EnterScore;

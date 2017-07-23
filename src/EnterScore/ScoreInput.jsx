@@ -1,10 +1,13 @@
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-export default class ScoreInput extends Component {
+class ScoreInput extends Component {
     constructor (props) {
         super(props);
 
+        this.decrement = this.decrement.bind(this);
+        this.increment = this.increment.bind(this);
         this.state = {
             count: 0
         };
@@ -26,10 +29,19 @@ export default class ScoreInput extends Component {
         return (
             <div>
                 {this.props.name}
-                <button className="decrement" onClick={this.decrement.bind(this)}>-</button>
+                <button className="decrement" onClick={this.decrement}>-</button>
                 <span className="count">{this.state.count}</span>
-                <button className="increment" onClick={this.increment.bind(this)}>+</button>
+                <button className="increment" onClick={this.increment}>+</button>
             </div>
         );
     }
 }
+
+ScoreInput.propTypes = {
+  name: PropTypes.string.isRequired,
+  increment: PropTypes.func.isRequired,
+  decrement: PropTypes.func.isRequired,
+  value: PropTypes.number.isRequired
+};
+
+export default ScoreInput;

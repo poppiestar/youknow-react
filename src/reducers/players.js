@@ -31,6 +31,6 @@ const players = (state = [], action) => {
         default:
             return state;
     }
-}
+};
 
 export default players;

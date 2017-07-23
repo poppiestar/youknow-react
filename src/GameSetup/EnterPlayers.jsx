@@ -9,6 +9,6 @@ const EnterPlayers = () =>
         <h2>Enter Players</h2>
         <VisiblePlayerList />
         <VisibleNewPlayer />
-    </div>
+    </div>;
 
 export default EnterPlayers;

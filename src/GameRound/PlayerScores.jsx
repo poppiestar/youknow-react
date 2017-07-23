@@ -1,9 +1,12 @@
 
 import React from 'react';
+import PropTypes from 'prop-types';
+
+import { reduceScores } from './helpers';
 
 function playersList (players) {
     return players.map((player, i) => {
-        const score = player.scores.reduce((prev, next) => { return prev + next });
+        const score = reduceScores(player.scores);
 
         return (
             <li key={i}>
@@ -19,6 +22,10 @@ const PlayerScores = ({ players }) =>
         <ul>
             { playersList(players) }
         </ul>
-    </div>
+    </div>;
+
+PlayerScores.propTypes = {
+  players: PropTypes.array.isRequired
+};
 
 export default PlayerScores;

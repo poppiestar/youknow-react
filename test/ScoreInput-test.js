@@ -1,9 +1,10 @@
+/* eslint-env node */
 
 import Lab from 'lab';
 import React from 'react';
 import sinon from 'sinon';
 import { expect } from 'code';
-import { shallow, mount, render } from 'enzyme';
+import { shallow } from 'enzyme';
 
 import ScoreInput from '../src/EnterScore/ScoreInput';
 

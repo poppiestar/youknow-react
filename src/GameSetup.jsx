@@ -1,5 +1,6 @@
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import SetGoal from './GameSetup/SetGoal';
 import EnterPlayers from './GameSetup/EnterPlayers';
@@ -11,9 +12,13 @@ const GameSetup = ({ startGame }) =>
         <GameSetup.SetGoal />
         <GameSetup.EnterPlayers />
         <button onClick={startGame}>Start Game</button>
-    </div>
+    </div>;
 
 GameSetup.SetGoal = SetGoal;
 GameSetup.EnterPlayers = EnterPlayers;
+
+GameSetup.propTypes = {
+  startGame: PropTypes.func.isRequired
+};
 
 export default GameSetup;
