@@ -7,6 +7,7 @@
     "test": "lab test/.setup.js test/*-test.js --leaks",
     "build": "webpack",
     "start": "servedir .",
+    "flow": "flow",
     "lint": "eslint"
   },
   "keywords": [
@@ -34,9 +35,11 @@
     "code": "^4.1.0",
     "enzyme": "^2.4.1",
     "eslint": "^4.3.0",
+    "eslint-plugin-flowtype": "^2.35.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.1.0",
+    "flow-bin": "^0.50.0",
     "jsdom": "^11.1.0",
     "lab": "^14.1.0",
     "servedir": "^1.0.0",

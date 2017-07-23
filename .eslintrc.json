@@ -8,11 +8,13 @@
     }
   },
   "plugins": [
+    "flowtype",
     "react"
   ],
   "extends": [
     "eslint:recommended",
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "plugin:flowtype/recommended"
   ],
   "rules": {
     "semi": 1

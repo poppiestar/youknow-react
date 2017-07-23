@@ -1,4 +1,5 @@
+// @flow
 
-export function reduceScores (scores) {
-    return scores.reduce((prev, next) => { return prev + next });
+export function reduceScores (scores: Array<number>): number {
+    return scores.reduce((prev: number, next: number) => prev + next );
 }
