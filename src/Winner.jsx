@@ -2,17 +2,14 @@
 
 import React from 'react';
 
+import type { Player } from './types';
+
 import { reduceScores } from './helpers';
 
 type WinnerPropTypes = {
   winner: Player,
   restartGame: () => void,
   resetGame: () => void
-};
-
-type Player = {
-  name: string,
-  scores: Array<number>
 };
 
 const Winner = ({ winner, restartGame, resetGame }: WinnerPropTypes) => {

@@ -2,15 +2,12 @@
 
 import React from 'react';
 
+import type { Player } from '../types';
+
 type PlayerListPropTypes = {
   players: Array<Player>,
   removePlayer: (id: number) => void
 }
-
-type Player = {
-  name: string,
-  scores: Array<number>
-};
 
 const PlayerList = ({ players, removePlayer }: PlayerListPropTypes) =>
     <ul>

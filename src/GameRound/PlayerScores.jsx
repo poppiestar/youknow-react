@@ -2,15 +2,12 @@
 
 import React from 'react';
 
+import type { Player } from '../types';
+
 import { reduceScores } from '../helpers';
 
 type PlayerScorePropTypes = {
-  players: Array<any>
-};
-
-type Player = {
-  name: string,
-  scores: Array<number>
+  players: Array<Player>
 };
 
 function playersList (players: Array<Player>): Array<any> {

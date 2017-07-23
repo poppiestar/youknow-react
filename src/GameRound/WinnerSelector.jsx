@@ -2,14 +2,11 @@
 
 import React from 'react';
 
+import type { Player } from '../types';
+
 type WinnerSelectorPropTypes = {
   players: Array<Player>,
   setWinner: (value: string) => void
-};
-
-type Player = {
-  name: string,
-  scores: Array<number>
 };
 
 function playersList(players: Array<Player>): Array<any> {

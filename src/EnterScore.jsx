@@ -2,6 +2,8 @@
 
 import React from 'react';
 
+import type { Player } from './types';
+
 import { reduceScores } from './helpers';
 
 import ScoreInput from './EnterScore/ScoreInput';
@@ -11,11 +13,6 @@ type EnterScorePropTypes = {
   nextRound: () => void,
   addScore: (value: number) => void,
   subtractScore: (value: number) => void
-};
-
-type Player = {
-  name: string,
-  scores: Array<number>
 };
 
 type Card = {

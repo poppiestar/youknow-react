@@ -2,13 +2,10 @@
 
 import React from 'react';
 
+import type { Player } from './types';
+
 import PlayerScores from './GameRound/PlayerScores';
 import VisibleWinnerSelector from './GameRound/VisibleWinnerSelector';
-
-type Player = {
-  name: string,
-  scores: Array<number>
-};
 
 type GameRoundPropTypes = {
   players: Array<Player>,
