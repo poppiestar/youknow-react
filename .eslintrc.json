@@ -17,7 +17,7 @@
     "plugin:flowtype/recommended"
   ],
   "rules": {
-    "semi": ["error"],
+    "semi": ["error", "always"],
     "indent": ["error", 4, {"SwitchCase": 1}]
   }
 }
