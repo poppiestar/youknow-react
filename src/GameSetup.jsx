@@ -6,11 +6,11 @@ import SetGoal from './GameSetup/SetGoal';
 import EnterPlayers from './GameSetup/EnterPlayers';
 // import ErrorMessage from './ErrorMessage';
 
-type GameSetupPropTypes = {
+export type Props = {
   startGame: () => void
 };
 
-const GameSetup = ({ startGame }: GameSetupPropTypes) =>
+const GameSetup = ({ startGame }: Props) =>
     <div>
         <h1>Player Entry</h1>
         <SetGoal />

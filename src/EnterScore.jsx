@@ -8,7 +8,7 @@ import { reduceScores } from './helpers';
 
 import ScoreInput from './EnterScore/ScoreInput';
 
-type EnterScorePropTypes = {
+export type Props = {
   winner: Player,
   nextRound: () => void,
   addScore: (value: number) => void,
@@ -34,7 +34,7 @@ const CARDS = [
     { value: 50, name: "Wild" }
 ];
 
-const EnterScore = ({ winner, nextRound, addScore, subtractScore }: EnterScorePropTypes) =>
+const EnterScore = ({ winner, nextRound, addScore, subtractScore }: Props) =>
     <div>
         <h1>Enter Score</h1>
         <p>Winner: { winner.name }</p>

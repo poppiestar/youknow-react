@@ -2,11 +2,11 @@
 
 import React from 'react';
 
-type SplashPropTypes = {
+export type Props = {
   moveToSetup: () => void
 };
 
-const Splash = ({ moveToSetup }: SplashPropTypes) =>
+const Splash = ({ moveToSetup }: Props) =>
     <div>
         <h1>Yo<b>u</b> K<b>no</b>w</h1>
         <p>Keep track of your games.</p>

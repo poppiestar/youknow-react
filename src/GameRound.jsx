@@ -7,12 +7,12 @@ import type { Player } from './types';
 import PlayerScores from './GameRound/PlayerScores';
 import VisibleWinnerSelector from './GameRound/VisibleWinnerSelector';
 
-type GameRoundPropTypes = {
+export type Props = {
   players: Array<Player>,
   roundOver: () => void
 };
 
-const GameRound = ({ players, roundOver }: GameRoundPropTypes) =>
+const GameRound = ({ players, roundOver }: Props) =>
     <div>
         <PlayerScores players={players} />
         <VisibleWinnerSelector />

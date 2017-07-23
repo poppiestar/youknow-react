@@ -2,17 +2,17 @@
 
 import React, { Component } from 'react';
 
-type NewPlayerPropTypes = {
+export type Props = {
   addPlayer: (name: string) => any
 }
 
 class NewPlayer extends Component {
-  props: NewPlayerPropTypes
+  props: Props
   textInput: HTMLInputElement
 
   addPlayer: () => void
 
-  constructor(props: NewPlayerPropTypes): void {
+  constructor(props: Props): void {
       super(props);
 
       this.addPlayer = this.addPlayer.bind(this);
