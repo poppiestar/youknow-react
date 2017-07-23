@@ -1,15 +1,16 @@
+// @flow
 
 import React from 'react';
-import PropTypes from 'prop-types';
+import type { Element } from 'react';
 
-import SetGoal from './SetGoal';
+import SetGoal from './GameSetup/SetGoal';
 
-const GameSetup = ({ goal, updateGoal }) =>
-  <SetGoal goal={goal} updateGoal={updateGoal} />;
-
-GameSetup.propTypes = {
-  goal: PropTypes.number.isRequired,
-  updateGoal: PropTypes.func.isRequired
+type GameSetupPropTypes = {
+  goal: number,
+  updateGoal: (goal: number) => void
 };
+
+const GameSetup = ({ goal, updateGoal }: GameSetupPropTypes): Element<any> =>
+  <SetGoal goal={goal} updateGoal={updateGoal} />;
 
 export default GameSetup;

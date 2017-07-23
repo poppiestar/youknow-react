@@ -1,47 +1,58 @@
+// @flow
 
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+
+type ScoreInputPropTypes = {
+  name: string,
+  increment: (num: number) => void,
+  decrement: (num: number) => void,
+  value: number
+};
+
+type ScoreInputState = {
+  count: number
+};
 
 class ScoreInput extends Component {
-    constructor (props) {
-        super(props);
+  props: ScoreInputPropTypes
+  state: ScoreInputState
 
-        this.decrement = this.decrement.bind(this);
-        this.increment = this.increment.bind(this);
-        this.state = {
-            count: 0
-        };
-    }
+  increment: () => void
+  decrement: () => void
 
-    increment () {
-        this.props.increment(this.props.value);
-        this.setState({ count: this.state.count + 1 });
-    }
+  constructor (props: ScoreInputPropTypes): void {
+    super(props);
 
-    decrement () {
-        if (this.state.count > 0) {
-            this.props.decrement(this.props.value);
-            this.setState({ count: this.state.count - 1});
-        }
-    }
+    this.decrement = this.decrement.bind(this);
+    this.increment = this.increment.bind(this);
 
-    render () {
-        return (
-            <div>
-                {this.props.name}
-                <button className="decrement" onClick={this.decrement}>-</button>
-                <span className="count">{this.state.count}</span>
-                <button className="increment" onClick={this.increment}>+</button>
-            </div>
-        );
+    this.state = {
+      count: 0
+    };
+  }
+
+  increment (): void {
+    this.props.increment(this.props.value);
+    this.setState({ count: this.state.count + 1 });
+  }
+
+  decrement (): void {
+    if (this.state.count > 0) {
+      this.props.decrement(this.props.value);
+      this.setState({ count: this.state.count - 1});
     }
+  }
+
+  render () {
+    return (
+      <div>
+        {this.props.name}
+        <button className="decrement" onClick={this.decrement}>-</button>
+        <span className="count">{this.state.count}</span>
+        <button className="increment" onClick={this.increment}>+</button>
+      </div>
+    );
+  }
 }
-
-ScoreInput.propTypes = {
-  name: PropTypes.string.isRequired,
-  increment: PropTypes.func.isRequired,
-  decrement: PropTypes.func.isRequired,
-  value: PropTypes.number.isRequired
-};
 
 export default ScoreInput;

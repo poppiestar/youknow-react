@@ -1,12 +1,13 @@
+// @flow
 
 import React from 'react';
-import PropTypes from 'prop-types';
+import type { Element } from 'react';
 
-const ErrorMessage = ({ message }) =>
-  message && <p className="error">{message}</p>;
-
-ErrorMessage.propTypes = {
-  message: PropTypes.string.isRequired
+type ErrorMessagePropTypes = {
+  message: string
 };
+
+const ErrorMessage = ({ message }: ErrorMessagePropTypes): Element<any> =>
+  <p className="error">{message}</p>;
 
 export default ErrorMessage;

@@ -1,20 +1,25 @@
+// @flow
 
 import React from 'react';
-import PropTypes from 'prop-types';
+import type { Element } from 'react';
 
-const PlayerList = ({ players, removePlayer }) => (
-    <ul>
-        {
-            players.map((player, i) =>
-                <li key={i}>{player.name} <button onClick={() => removePlayer(i)}>remove</button></li>
-            )
-        }
-    </ul>
-);
+type PlayerListPropTypes = {
+  players: Array<Player>,
+  removePlayer: (id: number) => void
+}
 
-PlayerList.propTypes = {
-  players: PropTypes.array.isRequired,
-  removePlayer: PropTypes.func.isRequired
+type Player = {
+  name: string,
+  scores: Array<number>
 };
+
+const PlayerList = ({ players, removePlayer }: PlayerListPropTypes): Element<any> =>
+  <ul>
+    {
+      players.map((player, i) =>
+        <li key={i}>{player.name} <button onClick={() => removePlayer(i)}>remove</button></li>
+      )
+    }
+  </ul>;
 
 export default PlayerList;

@@ -1,16 +1,17 @@
+// @flow
 
 import React from 'react';
-import PropTypes from 'prop-types';
+import type { Element } from 'react';
 
-const Splash = ({ moveToSetup }) =>
+type SplashPropTypes = {
+  moveToSetup: () => void
+};
+
+const Splash = ({ moveToSetup }: SplashPropTypes): Element<any> =>
   <div>
     <h1>Yo<b>u</b> K<b>no</b>w</h1>
     <p>Keep track of your games.</p>
     <button onClick={moveToSetup}>Begin</button>
   </div>;
-
-Splash.propTypes = {
-  moveToSetup: PropTypes.func.isRequired
-};
 
 export default Splash;

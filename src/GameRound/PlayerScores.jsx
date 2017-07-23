@@ -1,31 +1,33 @@
+// @flow
 
 import React from 'react';
-import PropTypes from 'prop-types';
+import type { Element } from 'react';
 
-import { reduceScores } from './helpers';
+import { reduceScores } from '../helpers';
 
-function playersList (players) {
-    return players.map((player, i) => {
-        const score = reduceScores(player.scores);
+type PlayerScorePropTypes = {
+  players: Array<any>
+};
 
-        return (
-            <li key={i}>
-                <p>{player.name}: {score}</p>
-            </li>
-        );
-    });
+type Player = {
+  name: string,
+  scores: Array<number>
+};
+
+function playersList (players: Array<Player>): Array<Element<any>> {
+  return players.map((player: Player, i: number) =>
+    <li key={i}>
+      <p>{player.name}: {reduceScores(player.scores)}</p>
+    </li>
+  );
 }
 
-const PlayerScores = ({ players }) =>
-    <div>
-        <h2>Player Scores</h2>
-        <ul>
-            { playersList(players) }
-        </ul>
-    </div>;
-
-PlayerScores.propTypes = {
-  players: PropTypes.array.isRequired
-};
+const PlayerScores = ({ players }: PlayerScorePropTypes) =>
+  <div>
+    <h2>Player Scores</h2>
+    <ul>
+      { playersList(players) }
+    </ul>
+  </div>;
 
 export default PlayerScores;

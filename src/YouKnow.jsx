@@ -1,39 +1,44 @@
+// @flow
 
 import React from 'react';
-import PropTypes from 'prop-types';
+import type { Element } from 'react';
 
 import VisibleSplash from './VisibleSplash';
 import VisibleGameSetup from './VisibleGameSetup';
 import VisibleGameRound from './VisibleGameRound';
 import VisibleEnterScore from './VisibleEnterScore';
-import Winner from './Winner';
+// import Winner from './Winner';
 
 import Stage from './constants/stages';
 
-const YouKnow = ({ game }) => {
-    switch (game.stage) {
-        case Stage.SPLASH:
-            return <VisibleSplash />;
-
-        case Stage.GAME_SETUP:
-            return <VisibleGameSetup />;
-
-        case Stage.GAME_ROUND:
-            return <VisibleGameRound />;
-
-        case Stage.ENTER_SCORE:
-            return <VisibleEnterScore />;
-
-        case Stage.WINNER:
-            return <Winner winner={this.state.players[this.state.winner]} restartGame={this.restartGame} resetGame={this.resetGame} />;
-
-        default:
-            return <VisibleSplash />;
-    }
+type Game = {
+  stage: number
 };
 
-YouKnow.propTypes = {
-  game: PropTypes.object.isRequired
+type YouKnowPropTypes = {
+  game: Game
+};
+
+const YouKnow = ({ game }: YouKnowPropTypes): Element<any> => {
+  switch (game.stage) {
+    case Stage.SPLASH:
+      return <VisibleSplash />;
+
+    case Stage.GAME_SETUP:
+      return <VisibleGameSetup />;
+
+    case Stage.GAME_ROUND:
+      return <VisibleGameRound />;
+
+    case Stage.ENTER_SCORE:
+      return <VisibleEnterScore />;
+
+    // case Stage.WINNER:
+    //   return <Winner winner={this.state.players[this.state.winner]} restartGame={this.restartGame} resetGame={this.resetGame} />;
+
+    default:
+      return <VisibleSplash />;
+  }
 };
 
     // restartGame: function restartGame () {

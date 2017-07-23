@@ -1,22 +1,28 @@
+// @flow
 
 import React from 'react';
-import PropTypes from 'prop-types';
+import type { Element } from 'react';
 
-function playersList(players) {
-    return players.map((player, i) =>
-        <option key={i} value={i}>{player.name}</option>
-    );
+type WinnerSelectorPropTypes = {
+  players: Array<Player>,
+  setWinner: (value: string) => void
+};
+
+type Player = {
+  name: string,
+  scores: Array<number>
+};
+
+function playersList(players: Array<Player>): Array<Element<any>> {
+  return players.map((player: Player, i: number) =>
+    <option key={i} value={i}>{player.name}</option>
+  );
 }
 
-const WinnerSelector = ({ players, setWinner }) =>
-    <select onChange={(e) => setWinner(e.target.value)}>
-        <option value="">Who won?</option>
-        { playersList(players) }
-    </select>;
-
-WinnerSelector.propTypes = {
-  players: PropTypes.array.isRequired,
-  setWinner: PropTypes.func.isRequired
-};
+const WinnerSelector = ({ players, setWinner }: WinnerSelectorPropTypes): Element<any> =>
+  <select onChange={(e: Event & { currentTarget: HTMLSelectElement }) => setWinner(e.currentTarget.value)}>
+    <option value="">Who won?</option>
+    { playersList(players) }
+  </select>;
 
 export default WinnerSelector;

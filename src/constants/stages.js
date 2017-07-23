@@ -1,3 +1,4 @@
+// @flow
 
 const Stage = {
     SPLASH: 1,
