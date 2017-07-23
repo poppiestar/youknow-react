@@ -1,13 +1,20 @@
+// @flow
 
-import { SET_STAGE, SET_WINNER, ADD_SCORE, SUBTRACT_SCORE } from '../actions';
 import Stage from '../constants/stages';
+
+import type { Action } from '../types';
 
 const defaultState = {
     stage: Stage.GAME_SETUP,
     roundScore: 0
 };
 
-const game = (state = defaultState, action) => {
+type GameState = {
+    stage: number,
+    roundScore: number
+};
+
+const game = (state: GameState = defaultState, action: Action): GameState => {
     switch (action.type) {
         case 'SET_STAGE':
             return Object.assign({}, state, { stage: action.stage });

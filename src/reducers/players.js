@@ -1,8 +1,8 @@
 // @flow
 
-import { ADD_PLAYER, REMOVE_PLAYER, SET_PLAYER_SCORE } from '../actions';
+import type { Action, Player } from '../types';
 
-import type { Player } from '../types';
+type PlayersState = Array<Player>;
 
 function newPlayer (name: string): Player {
     return {
@@ -11,26 +11,26 @@ function newPlayer (name: string): Player {
     };
 }
 
-const players = (state = [], action) => {
+const players = (state: PlayersState = [], action: Action): PlayersState => {
     switch (action.type) {
-        case ADD_PLAYER:
+        case 'ADD_PLAYER':
             return [
                 ...state,
                 newPlayer(action.name)
             ];
 
-        case REMOVE_PLAYER:
+        case 'REMOVE_PLAYER':
             return [
                 ...state.slice(0, action.id),
                 ...state.slice(action.id + 1)
             ];
 
-        case SET_PLAYER_SCORE:
-        // TODO This doesn't do what it's supposed to, obvs
-            return [
-                ...state.slice(0, action.id),
-                ...state.slice(action.id + 1)
-            ];
+        // case 'SET_PLAYER_SCORE':
+        // // TODO This doesn't do what it's supposed to, obvs
+        //     return [
+        //         ...state.slice(0, action.id),
+        //         ...state.slice(action.id + 1)
+        //     ];
 
         default:
             return state;
