@@ -1,8 +1,6 @@
 // @flow
 
-import type { Action, Player } from '../types';
-
-type PlayersState = Array<Player>;
+import type { Action, Player, PlayersState } from '../types';
 
 function newPlayer (name: string): Player {
     return {

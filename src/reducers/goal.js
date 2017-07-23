@@ -1,8 +1,8 @@
 // @flow
 
-import type { Action } from '../types';
+import type { Action, GoalState } from '../types';
 
-const goalOptions = (state: number = 300, action: Action): number => {
+const goalOptions = (state: GoalState = 300, action: Action): number => {
     switch (action.type) {
         case 'SET_GOAL':
             return parseInt(action.goal, 10);

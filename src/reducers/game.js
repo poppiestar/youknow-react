@@ -2,16 +2,11 @@
 
 import Stage from '../constants/stages';
 
-import type { Action } from '../types';
+import type { Action, GameState } from '../types';
 
 const defaultState = {
     stage: Stage.GAME_SETUP,
     roundScore: 0
-};
-
-type GameState = {
-    stage: number,
-    roundScore: number
 };
 
 const game = (state: GameState = defaultState, action: Action): GameState => {

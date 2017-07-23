@@ -5,14 +5,20 @@ export type Player = {
     scores: Array<number>
 };
 
+export type GameState = {
+    stage: number,
+    roundScore: number,
+    roundWinner?: number
+};
+
+export type GoalState = number;
+
+export type PlayersState = Array<Player>;
+
 export type State = {
-    players: Array<Player>,
-    game: {
-        stage: number,
-        roundScore: number,
-        roundWinner?: number
-    },
-    goal: number
+    players: PlayersState,
+    game: GameState,
+    goal: GoalState
 };
 
 export type Action =
