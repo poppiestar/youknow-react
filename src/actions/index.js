@@ -6,17 +6,17 @@ import Stage from '../constants/stages';
 import type { Action, Dispatch, GetState, ThunkAction } from '../types';
 
 export const setGoal = (goal: number): Action => ({
-    type: 'SET_GOAL',
+    type: 'GOAL:SET',
     goal
 });
 
 export const addPlayer = (name: string): Action => ({
-    type: 'ADD_PLAYER',
+    type: 'PLAYERS:ADD',
     name
 });
 
 export const removePlayer = (id: number): Action => ({
-    type: 'REMOVE_PLAYER',
+    type: 'PLAYERS:REMOVE',
     id
 });
 
@@ -29,12 +29,12 @@ export const startGame = (): ThunkAction => (dispatch: Dispatch, getState: GetSt
 };
 
 export const setStage = (stage: number): Action => ({
-    type: 'SET_STAGE',
+    type: 'GAME:SET_STAGE',
     stage
 });
 
 export const setWinner = (winner: number): Action => ({
-    type: 'SET_WINNER',
+    type: 'ROUND:SET_WINNER',
     winner: parseInt(winner, 10)
 });
 
@@ -61,17 +61,17 @@ export const roundOver = (): ThunkAction => (dispatch: Dispatch, getState: GetSt
 // };
 
 export const setPlayerScore = (winner: number, score: number): Action => ({
-    type: 'SET_PLAYER_SCORE',
+    type: 'ROUND:ADD_PLAYER_SCORE',
     winner,
     score
 });
 
 export const addScore = (value: number): Action => ({
-    type: 'ADD_SCORE',
+    type: 'ROUND:ADD_SCORE',
     value
 });
 
 export const subtractScore = (value: number): Action => ({
-    type: 'SUBTRACT_SCORE',
+    type: 'ROUND:SUBTRACT_SCORE',
     value
 });

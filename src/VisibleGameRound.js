@@ -10,8 +10,8 @@ import type { Props } from './GameRound';
 import { roundOver } from './actions';
 import GameRound from './GameRound';
 
-const mapStateToProps = ({ players, game }: State) => ({
-    score: game.roundScore,
+const mapStateToProps = ({ players, round }: State) => ({
+    score: round.score,
     players
 });
 

@@ -9,15 +9,20 @@ function newPlayer (name: string): Player {
     };
 }
 
-const players = (state: PlayersState = [], action: Action): PlayersState => {
+const initialState = [
+    newPlayer('Drew'),
+    newPlayer('Suzy')
+];
+
+const players = (state: PlayersState = initialState, action: Action): PlayersState => {
     switch (action.type) {
-        case 'ADD_PLAYER':
+        case 'PLAYERS:ADD':
             return [
                 ...state,
                 newPlayer(action.name)
             ];
 
-        case 'REMOVE_PLAYER':
+        case 'PLAYERS:REMOVE':
             return [
                 ...state.slice(0, action.id),
                 ...state.slice(action.id + 1)

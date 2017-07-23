@@ -2,9 +2,11 @@
 
 import type { Action, GoalState } from '../types';
 
-const goalOptions = (state: GoalState = 300, action: Action): number => {
+const initialState = 300;
+
+const goalOptions = (state: GoalState = initialState, action: Action): number => {
     switch (action.type) {
-        case 'SET_GOAL':
+        case 'GOAL:SET':
             return parseInt(action.goal, 10);
 
         default:

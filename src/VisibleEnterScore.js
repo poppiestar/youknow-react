@@ -10,8 +10,8 @@ import type { Props } from './EnterScore';
 import { addScore, subtractScore } from './actions';
 import EnterScore from './EnterScore';
 
-const mapStateToProps = ({ players, game }: State) => ({
-    winner: game.roundWinner && players[game.roundWinner]
+const mapStateToProps = ({ players, round }: State) => ({
+    winner: round.winner && players[round.winner]
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({

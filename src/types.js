@@ -6,9 +6,12 @@ export type Player = {
 };
 
 export type GameState = {
-    stage: number,
-    roundScore: number,
-    roundWinner?: number
+    stage: number
+};
+
+export type RoundState = {
+    score: number,
+    winner?: number
 };
 
 export type GoalState = number;
@@ -18,18 +21,19 @@ export type PlayersState = Array<Player>;
 export type State = {
     players: PlayersState,
     game: GameState,
-    goal: GoalState
+    goal: GoalState,
+    round: RoundState
 };
 
 export type Action =
-    | { type: 'SET_GOAL', goal: number }
-    | { type: 'ADD_PLAYER', name: string }
-    | { type: 'REMOVE_PLAYER', id: number }
-    | { type: 'SET_STAGE', stage: number }
-    | { type: 'SET_WINNER', winner: number }
-    | { type: 'SET_PLAYER_SCORE', winner: number, score: number }
-    | { type: 'ADD_SCORE', value: number }
-    | { type: 'SUBTRACT_SCORE', value: number };
+    | { type: 'GOAL:SET', goal: number }
+    | { type: 'PLAYERS:ADD', name: string }
+    | { type: 'PLAYERS:REMOVE', id: number }
+    | { type: 'GAME:SET_STAGE', stage: number }
+    | { type: 'ROUND:SET_WINNER', winner: number }
+    | { type: 'ROUND:ADD_PLAYER_SCORE', winner: number, score: number }
+    | { type: 'ROUND:ADD_SCORE', value: number }
+    | { type: 'ROUND:SUBTRACT_SCORE', value: number };
 
 export type Dispatch = (action: Action | ThunkAction ) => any;
 export type GetState = () => State;
