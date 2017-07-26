@@ -29,9 +29,9 @@ export type Action =
     | { type: 'GOAL:SET', goal: number }
     | { type: 'PLAYERS:ADD', name: string }
     | { type: 'PLAYERS:REMOVE', id: number }
+    | { type: 'PLAYERS:ADD_PLAYER_SCORE', winner: number, score: number }
     | { type: 'GAME:SET_STAGE', stage: number }
     | { type: 'ROUND:SET_WINNER', winner: number }
-    | { type: 'ROUND:ADD_PLAYER_SCORE', winner: number, score: number }
     | { type: 'ROUND:ADD_SCORE', value: number }
     | { type: 'ROUND:SUBTRACT_SCORE', value: number };
 

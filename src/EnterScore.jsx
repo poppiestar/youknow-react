@@ -9,10 +9,11 @@ import { reduceScores } from './helpers';
 import ScoreInput from './EnterScore/ScoreInput';
 
 export type Props = {
-  winner: Player,
-  nextRound: () => void,
-  addScore: (value: number) => void,
-  subtractScore: (value: number) => void
+    players: Array<Player>,
+    winner: number,
+    nextRound: () => void,
+    addScore: (value: number) => void,
+    subtractScore: (value: number) => void
 };
 
 type Card = {
@@ -34,17 +35,22 @@ const CARDS = [
     { value: 50, name: "Wild" }
 ];
 
-const EnterScore = ({ winner, nextRound, addScore, subtractScore }: Props) =>
-    <div>
-        <h1>Enter Score</h1>
-        <p>Winner: { winner.name }</p>
-        <p>Value: { reduceScores(winner.scores) }</p>
-        {
-            CARDS.map((card: Card, i: number) =>
-                <ScoreInput key={i} increment={addScore} decrement={subtractScore} value={card.value} name={card.name} />
-            )
-        }
-        <button onClick={nextRound}>Next Round</button>
-    </div>;
+const EnterScore = ({ winner, players, nextRound, addScore, subtractScore }: Props) => {
+    const roundWinner = players[winner];
+
+    return (
+        <div>
+            <h1>Enter Score</h1>
+            <p>Winner: { roundWinner.name }</p>
+            <p>Value: { reduceScores(roundWinner.scores) }</p>
+            {
+                CARDS.map((card: Card, i: number) =>
+                    <ScoreInput key={i} increment={addScore} decrement={subtractScore} value={card.value} name={card.name} />
+                )
+            }
+            <button onClick={nextRound}>Next Round</button>
+        </div>
+    );
+};
 
 export default EnterScore;

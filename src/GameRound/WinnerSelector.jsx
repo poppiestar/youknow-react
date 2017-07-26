@@ -6,7 +6,7 @@ import type { Player } from '../types';
 
 export type Props = {
   players: Array<Player>,
-  setWinner: (value: string) => void
+  setWinner: (value: number) => void
 };
 
 const playersList = (players: Array<Player>): Array<any> =>
@@ -15,7 +15,7 @@ const playersList = (players: Array<Player>): Array<any> =>
     );
 
 const WinnerSelector = ({ players, setWinner }: Props) =>
-    <select onChange={(e: Event & { currentTarget: HTMLSelectElement }) => setWinner(e.currentTarget.value)}>
+    <select onChange={(e: Event & { currentTarget: HTMLSelectElement }) => setWinner(parseInt(e.currentTarget.value, 10))}>
         <option value="">Who won?</option>
         { playersList(players) }
     </select>;

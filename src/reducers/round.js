@@ -9,13 +9,13 @@ const initialState = {
 const game = (state: RoundState = initialState, action: Action): RoundState => {
     switch (action.type) {
         case 'ROUND:SET_WINNER':
-            return Object.assign({}, state, { roundWinner: action.winner });
+            return Object.assign({}, state, { winner: action.winner });
 
         case 'ROUND:ADD_SCORE':
-            return Object.assign({}, state, { roundScore: state.score + action.value });
+            return Object.assign({}, state, { score: state.score + action.value });
 
         case 'ROUND:SUBTRACT_SCORE':
-            return Object.assign({}, state, { roundScore: state.score - action.value });
+            return Object.assign({}, state, { score: state.score - action.value });
 
         default:
             return state;

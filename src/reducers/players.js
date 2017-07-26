@@ -28,12 +28,12 @@ const players = (state: PlayersState = initialState, action: Action): PlayersSta
                 ...state.slice(action.id + 1)
             ];
 
-        // case 'SET_PLAYER_SCORE':
-        // // TODO This doesn't do what it's supposed to, obvs
-        //     return [
-        //         ...state.slice(0, action.id),
-        //         ...state.slice(action.id + 1)
-        //     ];
+        case 'PLAYERS:ADD_PLAYER_SCORE':
+            return [
+                ...state.slice(0, action.winner),
+                Object.assign({}, state[action.winner], { scores: [...state[action.winner].scores, action.score] }),
+                ...state.slice(action.winner)
+            ];
 
         default:
             return state;
