@@ -9,6 +9,9 @@ const goalOptions = (state: GoalState = initialState, action: Action): number =>
         case 'GOAL:SET':
             return parseInt(action.goal, 10);
 
+        case 'GAME:RESET':
+            return initialState;
+
         default:
             return state;
     }

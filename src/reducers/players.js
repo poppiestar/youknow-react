@@ -16,6 +16,12 @@ const initialState = [
 
 const players = (state: PlayersState = initialState, action: Action): PlayersState => {
     switch (action.type) {
+        case 'GAME:RESTART':
+            return state.map(player => newPlayer(player.name));
+
+        case 'GAME:RESET':
+            return initialState;
+
         case 'PLAYERS:ADD':
             return [
                 ...state,

@@ -17,6 +17,10 @@ const game = (state: RoundState = initialState, action: Action): RoundState => {
         case 'ROUND:SUBTRACT_SCORE':
             return Object.assign({}, state, { score: state.score - action.value });
 
+        case 'GAME:RESTART':
+        case 'GAME:RESET':
+            return initialState;
+
         default:
             return state;
     }
