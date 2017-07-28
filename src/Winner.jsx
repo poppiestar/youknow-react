@@ -6,13 +6,13 @@ import type { Player } from './types';
 
 import { reduceScores } from './helpers';
 
-type WinnerPropTypes = {
+export type Props = {
   winner: Player,
   restartGame: () => void,
   resetGame: () => void
 };
 
-const Winner = ({ winner, restartGame, resetGame }: WinnerPropTypes) => {
+const Winner = ({ winner, restartGame, resetGame }: Props) => {
     const { name, scores } = winner;
 
     return (
