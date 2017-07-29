@@ -35,11 +35,16 @@ const players = (state: PlayersState = initialState, action: Action): PlayersSta
             ];
 
         case 'PLAYERS:ADD_PLAYER_SCORE':
-            return [
-                ...state.slice(0, action.winner),
-                Object.assign({}, state[action.winner], { scores: [...state[action.winner].scores, action.score] }),
-                ...state.slice(action.winner)
-            ];
+            return state.map((player, i) => {
+                if (i === action.winner) {
+                    const updatedPlayer = newPlayer(player.name);
+                    updatedPlayer.scores = player.scores.concat(action.score);
+
+                    return updatedPlayer;
+                } else {
+                    return player;
+                }
+            });
 
         default:
             return state;
