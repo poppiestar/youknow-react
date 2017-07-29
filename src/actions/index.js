@@ -81,3 +81,11 @@ export const subtractScore = (value: number): Action => ({
     type: 'ROUND:SUBTRACT_SCORE',
     value
 });
+
+export const restartGame = (): Action => ({
+    type: 'GAME:RESTART'
+});
+
+export const resetGame = (): Action => ({
+    type: 'GAME:RESET'
+});
