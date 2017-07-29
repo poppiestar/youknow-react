@@ -11,8 +11,7 @@ import { restartGame, resetGame } from './actions';
 import Winner from './Winner';
 
 const mapStateToProps = ({ players, round }: State) => ({
-    score: round.score,
-    players
+    winner: players[round.winner]
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
