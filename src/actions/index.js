@@ -20,13 +20,14 @@ export const removePlayer = (id: number): Action => ({
     id
 });
 
-export const startGame = (): ThunkAction => (dispatch: Dispatch, getState: GetState) => {
-    const { players } = getState();
+export const startGame = (): ThunkAction =>
+    (dispatch: Dispatch, getState: GetState): void => {
+        const { players } = getState();
 
-    if (players.length >= 2) {
-        dispatch(setStage(Stage.GAME_ROUND));
-    }
-};
+        if (players.length >= 2) {
+            dispatch(setStage(Stage.GAME_ROUND));
+        }
+    };
 
 export const setStage = (stage: number): Action => ({
     type: 'GAME:SET_STAGE',
@@ -38,33 +39,30 @@ export const setWinner = (winner: number): Action => ({
     winner
 });
 
-export const roundOver = (): ThunkAction => (dispatch: Dispatch, getState: GetState): void => {
-    const { round } = getState();
+export const roundOver = (): ThunkAction =>
+    (dispatch: Dispatch, getState: GetState): void => {
+        const { round } = getState();
 
-    if (round.winner) {
-        dispatch(setStage(Stage.ENTER_SCORE));
-    }
-};
+        if (round.winner) {
+            dispatch(setStage(Stage.ENTER_SCORE));
+        }
+    };
 
-// TODO: calculate whether the winner has won
-export const nextRound = (): ThunkAction => (dispatch: Dispatch, getState: GetState) => {
-    const { round, goal } = getState();
+export const nextRound = (): ThunkAction =>
+    (dispatch: Dispatch, getState: GetState): void => {
+        const { round, goal } = getState();
 
-    dispatch(addPlayerScore(round.winner, round.score));
+        dispatch(addPlayerScore(round.winner, round.score));
 
-    const { players } = getState();
-    const winnerScore = reduceScores(players[round.winner].scores);
+        const { players } = getState();
+        const winnerScore = reduceScores(players[round.winner].scores);
 
-    if (round.winner) {
-        console.log(`winner is ${players[round.winner].name} with ${round.score} and total ${winnerScore}`);
-    }
-
-    if (winnerScore >= goal) {
-        dispatch(setStage(Stage.WINNER));
-    } else {
-        dispatch(setStage(Stage.GAME_ROUND));
-    }
-};
+        if (winnerScore >= goal) {
+            dispatch(setStage(Stage.WINNER));
+        } else {
+            dispatch(setStage(Stage.GAME_ROUND));
+        }
+    };
 
 export const addPlayerScore = (winner: number, score: number): Action => ({
     type: 'PLAYERS:ADD_PLAYER_SCORE',
