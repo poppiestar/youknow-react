@@ -11,7 +11,7 @@ export type GameState = {
 
 export type RoundState = {
     score: number,
-    winner?: number
+    winner: number
 };
 
 export type GoalState = number;

@@ -3,7 +3,8 @@
 import type { Action, RoundState } from '../types';
 
 const initialState = {
-    score: 0
+    score: 0,
+    winner: 0
 };
 
 const game = (state: RoundState = initialState, action: Action): RoundState => {
