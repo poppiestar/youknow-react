@@ -9,10 +9,7 @@ function newPlayer (name: string): Player {
     };
 }
 
-const initialState = [
-    newPlayer('Drew'),
-    newPlayer('Suzy')
-];
+const initialState = [];
 
 const players = (state: PlayersState = initialState, action: Action): PlayersState => {
     switch (action.type) {
