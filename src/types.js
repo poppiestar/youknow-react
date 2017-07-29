@@ -37,6 +37,6 @@ export type Action =
     | { type: 'ROUND:ADD_SCORE', value: number }
     | { type: 'ROUND:SUBTRACT_SCORE', value: number };
 
-export type Dispatch = (action: Action | ThunkAction ) => any;
+export type Dispatch = (action: Action | ThunkAction) => any;
 export type GetState = () => State;
 export type ThunkAction = (dispatch: Dispatch, getState: GetState) => any;
