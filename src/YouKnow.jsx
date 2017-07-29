@@ -6,7 +6,7 @@ import VisibleSplash from './VisibleSplash';
 import VisibleGameSetup from './VisibleGameSetup';
 import VisibleGameRound from './VisibleGameRound';
 import VisibleEnterScore from './VisibleEnterScore';
-// import Winner from './Winner';
+import VisibleWinner from './VisibleWinner';
 
 import Stage from './constants/stages';
 
@@ -32,32 +32,12 @@ const YouKnow = ({ game }: Props) => {
         case Stage.ENTER_SCORE:
             return <VisibleEnterScore />;
 
-            // case Stage.WINNER:
-            //   return <Winner winner={this.state.players[this.state.winner]} restartGame={this.restartGame} resetGame={this.resetGame} />;
+        case Stage.WINNER:
+            return <VisibleWinner />;
 
         default:
             return <VisibleSplash />;
     }
 };
-
-// restartGame: function restartGame () {
-//     this.setState({
-//         stage: Stage.GAME_ROUND,
-//         goal: this.props.goal,
-//         players: this.state.players.map( (player) => {
-//             return this.newPlayer(player.name);
-//         })
-//     });
-// },
-// resetGame: function resetGame () {
-//     this.setState({
-//         players: [],
-//         goal: 500,
-//         stage: Stage.GAME_SETUP
-//     });
-// },
-//     render: function render () {
-//     }
-// });
 
 export default YouKnow;
