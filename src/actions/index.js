@@ -41,9 +41,9 @@ export const setWinner = (winner: number): Action => ({
 
 export const roundOver = (): ThunkAction =>
     (dispatch: Dispatch, getState: GetState): void => {
-        const { round } = getState();
+        const { players, round } = getState();
 
-        if (round.winner) {
+        if (players[round.winner]) {
             dispatch(setStage(Stage.ENTER_SCORE));
         }
     };
