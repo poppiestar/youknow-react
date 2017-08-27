@@ -8,11 +8,12 @@ import type { Connector } from 'react-redux';
 import type { Props } from './EnterScore';
 
 import { addScore, subtractScore, nextRound } from './actions';
+import { getWinner, getPlayers } from './reducers';
 import EnterScore from './EnterScore';
 
-const mapStateToProps = ({ players, round }: State) => ({
-    winner: round.winner,
-    players
+const mapStateToProps = (state: State) => ({
+    winner: getWinner(state),
+    players: getPlayers(state)
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({

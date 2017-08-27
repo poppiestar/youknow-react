@@ -48,4 +48,6 @@ const players = (state: PlayersState = initialState, action: Action): PlayersSta
     }
 };
 
+export const getPlayers = (state: PlayersState) => state;
+
 export default players;
