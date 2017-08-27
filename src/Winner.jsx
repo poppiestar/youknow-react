@@ -7,13 +7,14 @@ import type { Player } from './types';
 import { reduceScores } from './helpers';
 
 export type Props = {
-  winner: Player,
+  players: Array<Player>,
+  winner: number,
   restartGame: () => void,
   resetGame: () => void
 };
 
-const Winner = ({ winner, restartGame, resetGame }: Props) => {
-    const { name, scores } = winner;
+const Winner = ({ winner, players, restartGame, resetGame }: Props) => {
+    const { name, scores } = players[winner];
 
     return (
         <div>

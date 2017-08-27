@@ -18,3 +18,5 @@ const goalOptions = (state: GoalState = initialState, action: Action): number =>
 };
 
 export default goalOptions;
+
+export const getGoal = (state: GoalState) => state;

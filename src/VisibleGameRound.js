@@ -2,28 +2,22 @@
 
 import { connect } from 'react-redux';
 
-import type { Dispatch } from 'redux';
 import type { State } from './types';
 import type { Connector } from 'react-redux';
 import type { Props } from './GameRound';
 
+import { getPlayers, getRoundScore } from './reducers';
 import { roundOver } from './actions';
 import GameRound from './GameRound';
 
-const mapStateToProps = ({ players, round }: State) => ({
-    score: round.score,
-    players
-});
-
-const mapDispatchToProps = (dispatch: Dispatch) => ({
-    roundOver: () => {
-        dispatch(roundOver());
-    }
+const mapStateToProps = (state: State) => ({
+    score: getRoundScore(state),
+    players: getPlayers(state)
 });
 
 const VisibleGameRound: Connector<Props, {}> = connect(
     mapStateToProps,
-    mapDispatchToProps
+    { roundOver }
 )(GameRound);
 
 export default VisibleGameRound;

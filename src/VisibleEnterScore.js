@@ -17,11 +17,7 @@ const mapStateToProps = (state: State) => ({
 
 const VisibleEnterScore: Connector<{}, Props> = connect(
     mapStateToProps,
-    {
-        addScore,
-        subtractScore,
-        nextRound
-    }
+    { addScore, subtractScore, nextRound }
 )(EnterScore);
 
 export default VisibleEnterScore;

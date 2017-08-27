@@ -24,5 +24,6 @@ const game = (state: RoundState = initialState, action: Action): RoundState => {
 };
 
 export const getWinner = (state: RoundState) => state.winner;
+export const getRoundScore = (state: RoundState) => state.score;
 
 export default game;

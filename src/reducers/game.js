@@ -33,3 +33,5 @@ const resetGame = (): GameState => ({
 });
 
 export default game;
+
+export const getGame = (state: GameState) => state;

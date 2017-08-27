@@ -2,30 +2,22 @@
 
 import { connect } from 'react-redux';
 
-import type { Dispatch } from 'redux';
 import type { State } from './types';
 import type { Connector } from 'react-redux';
 import type { Props } from './Winner';
 
+import { getWinner, getPlayers } from './reducers';
 import { restartGame, resetGame } from './actions';
 import Winner from './Winner';
 
-const mapStateToProps = ({ players, round }: State) => ({
-    winner: players[round.winner]
-});
-
-const mapDispatchToProps = (dispatch: Dispatch) => ({
-    restartGame: () => {
-        dispatch(restartGame());
-    },
-    resetGame: () => {
-        dispatch(resetGame());
-    }
+const mapStateToProps = (state: State) => ({
+    players: getPlayers(state),
+    winner: getWinner(state)
 });
 
 const VisibleWinner: Connector<Props, {}> = connect(
     mapStateToProps,
-    mapDispatchToProps
+    { restartGame, resetGame }
 )(Winner);
 
 export default VisibleWinner;
