@@ -16,7 +16,16 @@ export type RoundState = {
 
 export type GoalState = number;
 
-export type PlayersState = Array<Player>;
+export type PlayersByIdState = {
+    [id: number]: Player
+};
+
+export type AllPlayerIdsState = Array<number>;
+
+export type PlayersState = {
+    byId: PlayersByIdState,
+    allIds: AllPlayerIdsState
+};
 
 export type State = {
     players: PlayersState,
@@ -27,7 +36,7 @@ export type State = {
 
 export type Action =
     | { type: 'GOAL:SET', goal: number }
-    | { type: 'PLAYERS:ADD', name: string }
+    | { type: 'PLAYERS:ADD', name: string, id: number }
     | { type: 'PLAYERS:REMOVE', id: number }
     | { type: 'PLAYERS:ADD_PLAYER_SCORE', winner: number, score: number }
     | { type: 'GAME:SET_STAGE', stage: number }

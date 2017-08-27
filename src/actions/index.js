@@ -5,6 +5,8 @@ import { reduceScores } from '../helpers';
 
 import type { Action, Dispatch, GetState, ThunkAction } from '../types';
 
+let playerId = 0;
+
 export const setGoal = (goal: number): Action => ({
     type: 'GOAL:SET',
     goal
@@ -12,6 +14,7 @@ export const setGoal = (goal: number): Action => ({
 
 export const addPlayer = (name: string): Action => ({
     type: 'PLAYERS:ADD',
+    id: playerId++,
     name
 });
 
@@ -24,7 +27,7 @@ export const startGame = (): ThunkAction =>
     (dispatch: Dispatch, getState: GetState): void => {
         const { players } = getState();
 
-        if (players.length >= 2) {
+        if (players.allIds.length >= 2) {
             dispatch(setStage(Stage.GAME_ROUND));
         }
     };
@@ -43,7 +46,7 @@ export const roundOver = (): ThunkAction =>
     (dispatch: Dispatch, getState: GetState): void => {
         const { players, round } = getState();
 
-        if (players[round.winner]) {
+        if (players.byId[round.winner]) {
             dispatch(setStage(Stage.ENTER_SCORE));
         }
     };
@@ -55,7 +58,7 @@ export const nextRound = (): ThunkAction =>
         dispatch(addPlayerScore(round.winner, round.score));
 
         const { players } = getState();
-        const winnerScore = reduceScores(players[round.winner].scores);
+        const winnerScore = reduceScores(players.byId[round.winner].scores);
 
         if (winnerScore >= goal) {
             dispatch(setStage(Stage.WINNER));
