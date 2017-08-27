@@ -11,6 +11,7 @@ import ScoreInput from './EnterScore/ScoreInput';
 export type Props = {
     players: Array<Player>,
     winner: number,
+    scores: { [id: number]: Array<number> },
     nextRound: () => void,
     addScore: (value: number) => void,
     subtractScore: (value: number) => void
@@ -35,14 +36,14 @@ const CARDS = [
     { value: 50, name: "Wild" }
 ];
 
-const EnterScore = ({ winner, players, nextRound, addScore, subtractScore }: Props) => {
+const EnterScore = ({ winner, players, scores, nextRound, addScore, subtractScore }: Props) => {
     const roundWinner = players[winner];
-
+    
     return (
         <div>
             <h1>Enter Score</h1>
             <p>Winner: { roundWinner.name }</p>
-            <p>Value: { reduceScores(roundWinner.scores) }</p>
+            <p>Value: { reduceScores(scores[winner]) }</p>
             {
                 CARDS.map((card: Card, i: number) =>
                     <ScoreInput key={i} increment={addScore} decrement={subtractScore} value={card.value} name={card.name} />

@@ -1,14 +1,20 @@
 // @flow
 
 import { combineReducers } from 'redux';
-import type { AllPlayerIdsState, PlayersByIdState, Action, Player, PlayersState } from '../types';
+import type { AllPlayerIdsState, PlayersByIdState, Action, PlayersState } from '../types';
 
-function newPlayer (name: string): Player {
-    return {
-        name: name,
-        scores: [0]
-    };
-}
+const player = (state, action) => {
+    switch (action.type) {
+        case 'PLAYERS:ADD':
+            return {
+                id: action.id,
+                name: action.name
+            };
+
+        default:
+            return state;
+    }
+};
 
 const allIds = (state: AllPlayerIdsState = [], action): AllPlayerIdsState => {
     switch (action.type) {
@@ -34,7 +40,7 @@ const byId = (state: PlayersByIdState = {}, action: Action): PlayersByIdState =>
         case 'PLAYERS:ADD':
             return {
                 ...state,
-                [action.id]: newPlayer(action.name)
+                [action.id]: player(undefined, action)
             };
 
         // case 'PLAYERS:REMOVE':
@@ -42,19 +48,7 @@ const byId = (state: PlayersByIdState = {}, action: Action): PlayersByIdState =>
         //         ...state.slice(0, action.id),
         //         ...state.slice(action.id + 1)
         //     ];
-        // 
-        // case 'PLAYERS:ADD_PLAYER_SCORE':
-        //     return state.map((player, i) => {
-        //         if (i === action.winner) {
-        //             const updatedPlayer = newPlayer(player.name);
-        //             updatedPlayer.scores = player.scores.concat(action.score);
-        // 
-        //             return updatedPlayer;
-        //         } else {
-        //             return player;
-        //         }
-        //     });
-
+        
         default:
             return state;
     }

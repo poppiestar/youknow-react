@@ -1,8 +1,8 @@
 // @flow
 
 export type Player = {
-    name: string,
-    scores: Array<number>
+    id: number,
+    name: string
 };
 
 export type GameState = {
@@ -22,6 +22,8 @@ export type PlayersByIdState = {
 
 export type AllPlayerIdsState = Array<number>;
 
+export type PlayerScoresState = { [id: number]: Array<number> };
+
 export type PlayersState = {
     byId: PlayersByIdState,
     allIds: AllPlayerIdsState
@@ -31,18 +33,19 @@ export type State = {
     players: PlayersState,
     game: GameState,
     goal: GoalState,
-    round: RoundState
+    round: RoundState,
+    scores: PlayerScoresState
 };
 
 export type Action =
     | { type: 'GOAL:SET', goal: number }
     | { type: 'PLAYERS:ADD', name: string, id: number }
     | { type: 'PLAYERS:REMOVE', id: number }
-    | { type: 'PLAYERS:ADD_PLAYER_SCORE', winner: number, score: number }
+    | { type: 'PLAYERS:ADD_PLAYER_SCORE', id: number, score: number }
     | { type: 'GAME:SET_STAGE', stage: number }
     | { type: 'GAME:RESTART' }
     | { type: 'GAME:RESET' }
-    | { type: 'ROUND:SET_WINNER', winner: number }
+    | { type: 'ROUND:SET_WINNER', id: number }
     | { type: 'ROUND:ADD_SCORE', value: number }
     | { type: 'ROUND:SUBTRACT_SCORE', value: number };
 

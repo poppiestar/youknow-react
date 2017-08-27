@@ -37,9 +37,9 @@ export const setStage = (stage: number): Action => ({
     stage
 });
 
-export const setWinner = (winner: number): Action => ({
+export const setWinner = (id: number): Action => ({
     type: 'ROUND:SET_WINNER',
-    winner
+    id
 });
 
 export const roundOver = (): ThunkAction =>
@@ -57,8 +57,9 @@ export const nextRound = (): ThunkAction =>
 
         dispatch(addPlayerScore(round.winner, round.score));
 
-        const { players } = getState();
-        const winnerScore = reduceScores(players.byId[round.winner].scores);
+        const { scores } = getState();
+
+        const winnerScore = reduceScores(scores[round.winner]);
 
         if (winnerScore >= goal) {
             dispatch(setStage(Stage.WINNER));
@@ -67,9 +68,9 @@ export const nextRound = (): ThunkAction =>
         }
     };
 
-export const addPlayerScore = (winner: number, score: number): Action => ({
+export const addPlayerScore = (id: number, score: number): Action => ({
     type: 'PLAYERS:ADD_PLAYER_SCORE',
-    winner,
+    id,
     score
 });
 

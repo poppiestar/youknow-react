@@ -10,8 +10,8 @@ export type Props = {
 };
 
 const playersList = (players: Array<Player>): Array<any> =>
-    players.map((player: Player, i: number) =>
-        <option key={i} value={i}>{player.name}</option>
+    players.map((player: Player) =>
+        <option key={player.id} value={player.id}>{player.name}</option>
     );
 
 const WinnerSelector = ({ players, setWinner }: Props) =>
