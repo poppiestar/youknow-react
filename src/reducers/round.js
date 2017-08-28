@@ -4,7 +4,7 @@ import type { Action, RoundState } from '../types';
 
 const initialState = {
     score: 0,
-    winner: 0
+    winner: -1
 };
 
 const game = (state: RoundState = initialState, action: Action): RoundState => {
@@ -17,7 +17,11 @@ const game = (state: RoundState = initialState, action: Action): RoundState => {
 
         case 'ROUND:SUBTRACT_SCORE':
             return Object.assign({}, state, { score: state.score - action.value });
-
+        
+        case 'GAME:RESTART':
+        case 'GAME:RESET':
+            return initialState;
+            
         default:
             return state;
     }

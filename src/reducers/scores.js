@@ -10,6 +10,12 @@ const scores = (state = {}, action) => {
                 [action.id]: score(state[action.id], action)
             };
 
+        case 'GAME:RESTART':
+            return Object.keys(state).reduce((newState, id) => {
+                newState[id] = score(undefined, action);
+                return newState;
+            }, {});
+            
         case 'GAME:RESET':
             return {};
 

@@ -31,9 +31,6 @@ const allIds = (state: AllPlayerIdsState = [], action): AllPlayerIdsState => {
 
 const byId = (state: PlayersByIdState = {}, action: Action): PlayersByIdState => {
     switch (action.type) {
-        // case 'GAME:RESTART':
-        //     return state.map(player => newPlayer(player.name));
-
         case 'GAME:RESET':
             return {};
 
@@ -54,7 +51,7 @@ const byId = (state: PlayersByIdState = {}, action: Action): PlayersByIdState =>
     }
 };
 
-export const getPlayers = (state: PlayersState) => state.allIds.map(id => state.byId[id]);
+export const getPlayers = (state: PlayersState) => state.byId;
 
 const players = combineReducers({
     allIds,

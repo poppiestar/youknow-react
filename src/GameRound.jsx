@@ -8,7 +8,7 @@ import PlayerScores from './GameRound/PlayerScores';
 import VisibleWinnerSelector from './GameRound/VisibleWinnerSelector';
 
 export type Props = {
-  players: Array<Player>,
+  players: { [id: number]: Player },
   scores: { [id: number]: Array<number> },
   roundOver: () => void
 };

@@ -5,14 +5,18 @@ import React from 'react';
 import type { Player } from '../types';
 
 export type Props = {
-  players: Array<Player>,
+  players: { [id: number]: Player },
   setWinner: (value: number) => void
 };
 
-const playersList = (players: Array<Player>): Array<any> =>
-    players.map((player: Player) =>
-        <option key={player.id} value={player.id}>{player.name}</option>
-    );
+const playersList = (players: { [id: number]: Player }): Array<any> =>
+    Object.keys(players).reduce((list, playerId: number) => {
+        const player = players[playerId];
+
+        list[playerId] = <option key={player.id} value={player.id}>{player.name}</option>;
+
+        return list;
+    }, []);
 
 const WinnerSelector = ({ players, setWinner }: Props) =>
     <select onChange={(e: Event & { currentTarget: HTMLSelectElement }) => setWinner(parseInt(e.currentTarget.value, 10))}>
