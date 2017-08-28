@@ -2,13 +2,13 @@
 
 import React from 'react';
 
-import type { Player } from '../types';
+import type { Player, Players, Scores } from '../types';
 
 import { reduceScores } from '../helpers';
 
 type PlayerScorePropTypes = {
-  players: { [id: number]: Player },
-  scores: { [id: number]: Array<number> }
+  players: Players,
+  scores: Scores
 };
 
 const playersList = (players: { [id: number]: Player }, scores: { [id: number]: Array<number> }): Array<any> =>

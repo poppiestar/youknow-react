@@ -2,14 +2,14 @@
 
 import React from 'react';
 
-import type { Player } from './types';
+import type { Scores, Players } from './types';
 
 import PlayerScores from './GameRound/PlayerScores';
 import VisibleWinnerSelector from './GameRound/VisibleWinnerSelector';
 
 export type Props = {
-  players: { [id: number]: Player },
-  scores: { [id: number]: Array<number> },
+  players: Players,
+  scores: Scores,
   roundOver: () => void
 };
 

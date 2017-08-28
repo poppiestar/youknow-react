@@ -2,16 +2,16 @@
 
 import React from 'react';
 
-import type { Player } from './types';
+import type { Players, Scores } from './types';
 
 import { reduceScores } from './helpers';
 
 import ScoreInput from './EnterScore/ScoreInput';
 
 export type Props = {
-    players: Array<Player>,
+    players: Players,
     winner: number,
-    scores: { [id: number]: Array<number> },
+    scores: Scores,
     nextRound: () => void,
     addScore: (value: number) => void,
     subtractScore: (value: number) => void

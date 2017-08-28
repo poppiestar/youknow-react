@@ -5,6 +5,9 @@ export type Player = {
     name: string
 };
 
+export type Players = { [id: number]: Player };
+export type Scores = { [id: number]: Array<number> };
+
 export type GameState = {
     stage: number
 };

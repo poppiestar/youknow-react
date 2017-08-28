@@ -2,10 +2,10 @@
 
 import React from 'react';
 
-import type { Player } from '../types';
+import type { Players, Player } from '../types';
 
 export type Props = {
-  players: { [id: number]: Player },
+  players: Players,
   setWinner: (value: number) => void
 };
 
