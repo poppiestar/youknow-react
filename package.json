@@ -4,7 +4,7 @@
   "description": "An app to keep count of that card game. You Know the one.",
   "main": "index.js",
   "scripts": {
-    "test": "lab test/.setup.js test/*-test.js --leaks",
+    "test": "lab test/.setup.js test/**/*-test.js --leaks",
     "build": "webpack",
     "start": "servedir .",
     "flow": "flow",
@@ -42,8 +42,9 @@
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.1.0",
     "flow-bin": "^0.50.0",
-    "jsdom": "^11.1.0",
+    "jsdom": "^11.2.0",
     "lab": "^14.1.0",
+    "react-test-renderer": "^15.6.1",
     "servedir": "^1.0.0",
     "sinon": "^2.3.7",
     "webpack": "^3.1.0"

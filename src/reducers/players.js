@@ -3,19 +3,7 @@
 import { combineReducers } from 'redux';
 import omit from 'lodash.omit';
 import type { AllPlayerIdsState, PlayersByIdState, Action, PlayersState } from '../types';
-
-const player = (state, action) => {
-    switch (action.type) {
-        case 'PLAYERS:ADD':
-            return {
-                id: action.id,
-                name: action.name
-            };
-
-        default:
-            return state;
-    }
-};
+import player from './player';
 
 const allIds = (state: AllPlayerIdsState = [], action): AllPlayerIdsState => {
     switch (action.type) {
