@@ -14,10 +14,10 @@ const game = (state: GameState = initialState, action: Action): GameState => {
             return Object.assign({}, state, { stage: action.stage });
 
         case 'GAME:RESTART':
-            return Object.assign({}, state, restartGame());
+            return restartGame();
 
         case 'GAME:RESET':
-            return Object.assign({}, state, resetGame());
+            return resetGame();
 
         default:
             return state;
