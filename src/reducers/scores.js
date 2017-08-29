@@ -1,5 +1,6 @@
 
 import score from './score';
+import omit from 'lodash.omit';
 
 const scores = (state = {}, action) => {
     switch (action.type) {
@@ -9,6 +10,9 @@ const scores = (state = {}, action) => {
                 ...state,
                 [action.id]: score(state[action.id], action)
             };
+
+        case 'PLAYERS:REMOVE':
+            return omit(state, action.id);
 
         case 'GAME:RESTART':
             return Object.keys(state).reduce((newState, id) => {

@@ -1,6 +1,7 @@
 // @flow
 
 import { combineReducers } from 'redux';
+import omit from 'lodash.omit';
 import type { AllPlayerIdsState, PlayersByIdState, Action, PlayersState } from '../types';
 
 const player = (state, action) => {
@@ -20,7 +21,10 @@ const allIds = (state: AllPlayerIdsState = [], action): AllPlayerIdsState => {
     switch (action.type) {
         case 'PLAYERS:ADD':
             return [...state, action.id];
-        
+
+        case 'PLAYERS:REMOVE':
+            return state.filter((item) => item !== action.id);
+
         case 'GAME:RESET':
             return [];
 
@@ -40,12 +44,9 @@ const byId = (state: PlayersByIdState = {}, action: Action): PlayersByIdState =>
                 [action.id]: player(undefined, action)
             };
 
-        // case 'PLAYERS:REMOVE':
-        //     return [
-        //         ...state.slice(0, action.id),
-        //         ...state.slice(action.id + 1)
-        //     ];
-        
+        case 'PLAYERS:REMOVE':
+            return omit(state, action.id);
+
         default:
             return state;
     }
