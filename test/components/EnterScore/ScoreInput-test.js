@@ -6,7 +6,7 @@ import sinon from 'sinon';
 import { expect } from 'code';
 import { shallow } from 'enzyme';
 
-import ScoreInput from '../../src/EnterScore/ScoreInput';
+import ScoreInput from '../../../src/EnterScore/ScoreInput';
 
 const lab = exports.lab = Lab.script();
 const { suite, test } = lab;
